@@ -1,173 +1,920 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>轨道萌宝 RailPals · BNB链全链上像素NFT</title>
-<meta property="og:title" content="轨道萌宝 RailPals · 3,300 只全链上像素萌宝"><meta property="og:description" content="BNB 链免费铸造（0.0002 BNB 铸造费）· Rider 0.002 · Express 0.003"><meta property="og:image" content="https://railix.xyz/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://railix.xyz/og.png"><meta name="description" content="3,300只全链上像素轨道萌宝，BNB链。免费铸造（需0.0002 BNB铸造费）、Rider 0.002 BNB、Express 0.003 BNB。">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAILIX — Small runs, endless rails</title>
+<meta name="description" content="4,444 rail lines on BNB Chain. One track, one light, one runner, laid from a seed the moment an AI agent mints it.">
+<meta name="theme-color" content="#07080F">
+<meta property="og:title" content="RAILIX — Small runs, endless rails">
+<meta property="og:description" content="4,444 rail lines on BNB Chain. One track, one light, one runner, laid from a seed the moment an AI agent mints it.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://railix.xyz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RAILIX — small runs, endless rails">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RAILIX — Small runs, endless rails">
+<meta name="twitter:description" content="4,444 rail lines on BNB Chain. One track, one light, one runner, laid from a seed the moment an AI agent mints it.">
+<meta name="twitter:image" content="https://railix.xyz/og.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080F'/%3E%3Cg stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M14 48 L26 16' stroke='%2322E6FF'/%3E%3Cpath d='M26 48 L38 16' stroke='%23FF2BD6'/%3E%3Cpath d='M38 48 L50 16' stroke='%2322E6FF'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080F'/%3E%3Cg stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M14 48 L26 16' stroke='%2322E6FF'/%3E%3Cpath d='M26 48 L38 16' stroke='%23FF2BD6'/%3E%3Cpath d='M38 48 L50 16' stroke='%2322E6FF'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#2B2238;--bg:#FFF7EC;--pink:#D92D63;--sky:#1A7BC2;--mint:#118565;--gold:#E8B923;--card:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:"PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-img{image-rendering:pixelated}a{color:inherit}
-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;position:sticky;top:0;background:#FFF7ECee;backdrop-filter:blur(6px);z-index:5;border-bottom:3px solid var(--ink)}
-.logo{font-weight:900;font-size:20px}.logo b{color:var(--pink)}
-nav a{margin-left:14px;text-decoration:none;font-weight:700;font-size:14px}
-.btn{border:3px solid var(--ink);background:var(--pink);color:#fff;font-weight:900;padding:12px 18px;border-radius:14px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;font-size:15px;font-family:inherit}
-.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}.btn.sky{background:var(--sky)}.btn.gold{background:var(--gold);color:var(--ink)}.btn.mint{background:var(--mint)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.hero{padding:40px 20px 30px;text-align:center;background:linear-gradient(#BFE8FF,#FFF7EC)}
-.hero h1{font-size:clamp(34px,8vw,64px);margin:0 0 6px;letter-spacing:2px}.hero h1 span{color:var(--pink)}
-.hero p{font-size:17px;max-width:620px;margin:8px auto 18px;line-height:1.6}
-.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:720px;margin:24px auto 0}
-.strip img{width:100%;border:3px solid var(--ink);border-radius:12px;animation:bob 2.4s ease-in-out infinite}
-.strip img:nth-child(2n){animation-delay:.6s}.strip img:nth-child(3n){animation-delay:1.2s}
-@keyframes bob{50%{transform:translateY(-6px)}}
-.rails{height:14px;background:repeating-linear-gradient(90deg,#8A6F5A 0 10px,transparent 10px 22px),linear-gradient(#6B5B73 0 3px,transparent 3px 11px,#6B5B73 11px 14px);max-width:720px;margin:6px auto 0}
-section{padding:44px 20px;max-width:1040px;margin:0 auto}h2{font-size:28px;margin:0 0 6px}.sub{margin:0 0 22px;opacity:.75}
-.progress{max-width:720px;margin:22px auto 0;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:12px}
-.bar{height:16px;background:#eee;border-radius:8px;overflow:hidden;border:2px solid var(--ink)}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--gold))}
-.pl{display:flex;justify-content:space-between;font-weight:800;margin-bottom:8px;font-size:14px}
-.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.tier{background:var(--card);border:3px solid var(--ink);border-radius:18px;padding:20px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:10px}
-.tier h3{margin:0;font-size:22px}.price{font-size:30px;font-weight:900}.price small{font-size:14px;font-weight:700;opacity:.7}
-.tag{display:inline-block;font-size:12px;font-weight:800;padding:3px 8px;border-radius:8px;border:2px solid var(--ink)}
-.tier ul{margin:0;padding-left:18px;line-height:1.7;font-size:14px}.qty{display:flex;align-items:center;gap:8px;font-weight:800}
-.qty button{width:44px;height:44px;border:3px solid var(--ink);border-radius:10px;background:#fff;font-weight:900;font-size:18px}
-.qty span{min-width:28px;text-align:center;font-size:18px}
-.status{margin-top:16px;padding:12px;border-radius:12px;background:#fff;border:2px dashed var(--ink);font-size:14px;word-break:break-all}
-.status.ok{border-style:solid;background:#E4FFF4}.status.err{border-style:solid;background:#FFE7EC}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
-.gal figure{margin:0;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:6px;text-align:center}.gal img{width:100%;border-radius:8px}.gal figcaption{font-size:12px;font-weight:800;margin-top:4px}
-.traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.traits div{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:14px;font-size:14px;line-height:1.6}.traits b{display:block;font-size:16px;margin-bottom:4px}
-.agent{background:var(--ink);color:#fff;border-radius:18px;padding:22px}.agent pre{white-space:pre-wrap;background:#00000040;padding:14px;border-radius:12px;font-size:13px;line-height:1.6}
-details{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:12px 16px;margin-bottom:10px}summary{font-weight:800;cursor:pointer}details p{line-height:1.7;margin:8px 0 0}
-footer{text-align:center;padding:30px 20px;font-size:13px;border-top:3px solid var(--ink)}
-code{background:#fff;border:1px solid #2B223833;padding:2px 6px;border-radius:6px;word-break:break-all}
-#mine{display:none;margin-top:12px;gap:8px;flex-wrap:wrap}#mine img{width:72px;border:2px solid var(--ink);border-radius:8px}
-.game{max-width:720px;margin:22px auto 0;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:10px;box-shadow:5px 5px 0 var(--ink)}
-.game canvas{width:100%;display:block;border-radius:10px;background:#BFE8FF;touch-action:manipulation;cursor:pointer}
-.ebPerk{margin-top:8px;font-weight:800;font-size:14px;color:var(--pink)}.ebTot{margin-top:4px;font-size:12px;opacity:.6}.prize{margin:8px 4px 2px;font-size:13px;font-weight:800;background:#FFF1C2;border:2px solid var(--ink);border-radius:10px;padding:8px 10px;text-align:left} .wl{display:flex;flex-direction:column;gap:8px;margin-top:10px}.wl a,.wl button{text-decoration:none;display:block;text-align:center;width:100%;box-sizing:border-box} .mine{margin-top:16px}.mine h3{margin:8px 0}.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}.mg figure{margin:0;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:8px;text-align:center;font-size:12px;font-weight:800}.mg img{width:100%;image-rendering:pixelated;border-radius:8px}.mg .act{display:flex;gap:4px;margin-top:6px}.mg .act a,.mg .act button{flex:1;font-size:11px;padding:6px 2px;border:2px solid var(--ink);border-radius:8px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;cursor:pointer}.mg figure.sel{outline:4px solid var(--pink)}.rar{display:inline-block;margin-top:4px;padding:1px 6px;border-radius:6px;background:#FFE4F0} .gbar{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:14px;padding:8px 4px 2px;gap:8px;flex-wrap:wrap}
-.reveal{position:fixed;inset:0;background:#2B2238cc;display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
-.reveal .box{background:#FFF7EC;border:4px solid var(--ink);border-radius:20px;padding:22px;text-align:center;max-width:420px;width:100%;animation:pop .5s}
-.reveal img{width:140px;border:3px solid var(--ink);border-radius:12px;margin:6px;animation:spin .9s ease-out}
-@keyframes pop{from{transform:scale(.6);opacity:0}}@keyframes spin{from{transform:rotateY(180deg) scale(.4)}}
-.feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}.feed figure{margin:0;background:#fff;border:3px solid var(--ink);border-radius:12px;padding:5px;text-align:center;font-size:12px;font-weight:800}.feed img{width:100%;border-radius:6px}
-.ca{overflow-wrap:anywhere;word-break:break-all}a.ca{display:inline-flex;align-items:center;min-height:44px}@media(max-width:600px){nav{display:none}.strip{grid-template-columns:repeat(3,1fr)}}
-</style><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#FFF7EC"><link rel="icon" type="image/png" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"></head><body>
-<header><div class="logo">轨道<b>萌宝</b> RailPals</div><nav><a href="#mint">铸造</a><a href="#gallery">图鉴</a><a href="#rarity">稀有度</a><a href="#agent">AI Agent</a><a href="#faq">问答</a><a href="https://element.market/collections/guidaomengbao-railpals" target="_blank" rel="noopener">Element 市场</a></nav></header>
-<div class="hero"><h1>轨道<span>萌宝</span></h1>
-<p>3,300 只全链上像素小跑者，住在霓虹城市的轨道上。猫、兔、熊、狐、蛙、熊猫、小鸭和机器人，每一只都独一无二，图片 100% 存在 BNB 链上。</p>
-<div class="row"><a href="#mint"><button class="btn">立即铸造</button></a><a href="#agent"><button class="btn sky">用 AI Agent 铸造</button></a><a href="https://element.market/collections/guidaomengbao-railpals" target="_blank" rel="noopener"><button class="btn mint">🛒 Element 市场</button></a></div>
-<div class="strip"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSIxNSIgeT0iNSIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzhDOThBQSIvPjxyZWN0IHg9IjE1IiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY1QzVDIi8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGN0E0NSIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQjhDNEQ2Ii8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0I4QzRENiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNCOEM0RDYiLz48cmVjdCB4PSIxMSIgeT0iMTEiIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiBmaWxsPSIjMkIzNDQ1Ii8+PHJlY3QgeD0iMTIiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjNUNGN0ZGIi8+PHJlY3QgeD0iMTgiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjNUNGN0ZGIi8+PHJlY3QgeD0iMTIiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTgiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTUiIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTUiIHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjUiIGZpbGw9IiM1NTU1NTUiLz48cmVjdCB4PSIxNCIgeT0iMiIgd2lkdGg9IjMiIGhlaWdodD0iMiIgZmlsbD0iIzNGRjdGRiIvPjxyZWN0IHg9IjExIiB5PSIxMiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMSIgeT0iMTMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxNyIgeT0iMTMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48L3N2Zz4=" alt="RailPals #3"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjdBNDUiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjdBNDUiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNUY1RjUiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRjVGNUY1Ii8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0Y1RjVGNSIvPjxyZWN0IHg9IjExIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE3IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMSIgeT0iMTIiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTEiIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTciIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjwvc3ZnPg==" alt="RailPals #7"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNEOURFRTYiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRUVGMUY1Ii8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iOSIgeT0iNyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjEwIiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iMTAiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSIxOSIgeT0iNyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjIwIiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iMjEiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSIxMCIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGNUM4QSIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY1QzhBIi8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY1QzhBIi8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSI3IiB5PSIxNSIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIyIiB5PSIxNSIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjciIHk9IjE3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjIiIHk9IjE3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTIiIHk9IjE0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjE0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTUiIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjYiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzIiBmaWxsPSIjMUYzQTY4Ii8+PHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEiIGZpbGw9IiMxNDI4NEEiLz48cmVjdCB4PSIxNSIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMCIgeT0iMzEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMSIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIxIiB5PSIzMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMwIiB5PSIzMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjwvc3ZnPg==" alt="RailPals #12"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMTAiIHk9IjIiIHdpZHRoPSIzIiBoZWlnaHQ9IjciIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxOSIgeT0iMiIgd2lkdGg9IjMiIGhlaWdodD0iNyIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjExIiB5PSIzIiB3aWR0aD0iMSIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZCM0M2Ii8+PHJlY3QgeD0iMjAiIHk9IjMiIHdpZHRoPSIxIiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkIzQzYiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjM0ZBOUY1Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiMzRkE5RjUiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiMzRkE5RjUiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMTkiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjRGIi8+PC9zdmc+" alt="RailPals #21"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMxRTIxNTAiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjMkUzMjcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMjAiIHk9IjMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkUyN0EiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjQjA3QTUyIi8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiNCMDdBNTIiLz48cmVjdCB4PSIxMCIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzVBNDYzNiIvPjxyZWN0IHg9IjIxIiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNUE0NjM2Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGQjYyNyIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQjA3QTUyIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0IwN0E1MiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNCMDdBNTIiLz48cmVjdCB4PSIxMiIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIyMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIxNSIgeT0iMTciIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iNyIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iI0ZGNEY3QiIvPjxyZWN0IHg9IjIyIiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjEiIHk9IjgiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMjE4NUIiLz48cmVjdCB4PSI1IiB5PSI1IiB3aWR0aD0iMSIgaGVpZ2h0PSIzIiBmaWxsPSIjRkZFMjdBIi8+PHJlY3QgeD0iNCIgeT0iNiIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRTI3QSIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMzEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIzMSIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48L3N2Zz4=" alt="RailPals #44"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNCRkU4RkYiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRTlGN0ZGIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTUiIHk9IjciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEzIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE0IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE5IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIwIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0ZGOUEyRSIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMTkiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PC9zdmc+" alt="RailPals #58"></div><div class="rails"></div><div class="game"><canvas id="cv" width="720" height="220"></canvas><div id="skinNote" style="font-size:12px;font-weight:800;color:var(--pink);padding:6px 4px 0">💡 持有萌宝？连接钱包，用你自己的萌宝来跑！</div><div class="gbar"><span>🏃 点一下或按空格跳过列车！ 分数 <b id="sc">0</b> · 最高 <b id="hi">0</b></span><a class="btn gold" id="shareBtn" href="https://x.com/intent/tweet" target="_blank" rel="noopener" style="padding:8px 12px;font-size:13px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none">分享分数到 X</a></div><div class="prize">🏆 每周挑战：带 #RailPals 把分数分享到 X，每周最高分送 1 只 Express 特快票萌宝！</div></div>
+:root{--bg:#07080F;--panel:#0D0F1C;--panel-2:#12152A;--ink:#E9F3FF;--mute:#8C95B8;--rule:rgba(120,140,255,.18);--cy:#22E6FF;--mg:#FF2BD6;--sans:'Space Grotesk',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.05;background:repeating-linear-gradient(180deg,#fff 0 1px,transparent 1px 3px)}
+a{color:inherit}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.small{font-size:14px}
+code{font-family:var(--mono);font-size:.82em;background:var(--panel-2);color:var(--cy);padding:.1em .35em;border-radius:3px}
+.display{font-family:var(--sans);font-weight:500;letter-spacing:-.03em;line-height:.98}
+.display em{font-style:normal;color:var(--mg);text-shadow:0 0 24px rgba(255,43,214,.55)}
 
-<div class="progress"><div class="pl"><span id="ebLabel">🎟 早鸟首发乘客 · 剩余 <b id="ebLeft">100</b> / 100</span><span id="liveNote">实时链上数据</span></div><div class="bar"><i id="barFill"></i></div><div class="ebPerk" id="ebPerk">前 100 位上车的萌宝 = 首发乘客：自动获得下一个项目白名单 🎁</div><div class="ebTot">已铸造 <b id="minted">–</b> / 3,300</div></div></div>
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:rgba(7,8,15,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.mark{display:flex;align-items:center;min-height:44px;gap:9px;font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.26em;text-decoration:none}
+.nav{display:none;gap:26px}.nav a{text-decoration:none;color:var(--mute)}.nav a:hover{color:var(--cy)}
+.count{display:flex;align-items:center;gap:6px;color:var(--mute)}.count b{color:var(--ink);font-weight:500}
+.count i{width:7px;height:7px;background:var(--cy);box-shadow:0 0 8px var(--cy);display:block;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
 
-<section id="agent"><div class="agent"><h2>用 AI Agent 铸造 🤖</h2><p>把下面这段话发给你的 AI Agent 钱包（例如币安 Agentic Wallet），它就能帮你铸造。</p>
-<pre id="prompt">请在 BNB 链（chainId 56）上帮我铸造一只「轨道萌宝 RailPals」NFT。
-合约地址：<a class="ca" href="https://bscscan.com/address/0xC500b9b277d1A9717f8c96bD4228E16ee134a71A" target="_blank" rel="noopener">0xC500b9b277d1A9717f8c96bD4228E16ee134a71A</a>
-免费档：调用 freeMint()，value 必须正好 0.0002 BNB（铸造费），每个钱包 1 次。
-或 Rider 档：调用 mintRider(数量)，value = 0.002 BNB × 数量（1-5）。
-或 Express 档：调用 mintExpress(数量)，value = 0.003 BNB × 数量（1-5）。
-每个钱包总共最多 5 只（含免费票）。不需要任何代币授权或签名消息。</pre><button class="btn gold" id="copyP">复制提示词</button></div></section>
-<section id="mint"><h2>选择你的车票 🎫</h2><p class="sub">三种铸造方式，同一个萌宝池子。付费档会带上银色或金色车票边框。</p>
-<div class="tiers">
-<div class="tier"><span class="tag" style="background:#E4FFF4">免费铸造</span><h3>Free 免费票</h3><div class="price">0 <small>NFT 价格 · 需付 0.0002 BNB 铸造费</small></div>
-<ul><li>每个钱包限 1 只免费票（计入 5 只上限）</li><li>铸造费 0.0002 BNB 进入合约，链上 gas 另计</li><li>普通车票，无边框</li></ul><button class="btn mint" id="bFree">免费铸造（0.0002 BNB 铸造费）</button></div>
-<div class="tier"><span class="tag" style="background:#EEF1F5">银色车票</span><h3>Rider 乘客票</h3><div class="price">0.002 <small>BNB / 只</small></div>
-<ul><li>每个钱包最多 5 只（含免费票）</li><li>银色车票边框</li><li>同样有机会抽中传说与 1/1</li></ul><div class="qty"><button data-q="r" data-d="-1">−</button><span id="qr">1</span><button data-q="r" data-d="1">+</button></div><button class="btn sky" id="bRider">铸造 Rider</button></div>
-<div class="tier"><span class="tag" style="background:#FFF1A8">金色车票</span><h3>Express 特快票</h3><div class="price">0.003 <small>BNB / 只</small></div>
-<ul><li>每个钱包最多 5 只（含免费票）</li><li>金色车票边框，最闪亮</li><li>同样有机会抽中传说与 1/1</li></ul><div class="qty"><button data-q="e" data-d="-1">−</button><span id="qe">1</span><button data-q="e" data-d="1">+</button></div><button class="btn gold" id="bExpress">铸造 Express</button></div>
-</div>
-<div class="row" style="margin-top:20px"><button class="btn" id="connectBtn">连接钱包</button></div>
-<div class="status" id="status">请在钱包 App（币安钱包、MetaMask、TokenPocket、OKX 等）的浏览器中打开本页，并切换到 BNB 链。</div>
-<div id="mine" class="mine"></div></section>
+.hero{position:relative;min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:flex-end;padding:0 20px 22px;overflow:hidden;border-bottom:1px solid var(--rule)}
+#field{position:absolute;inset:0;width:100%;height:100%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,8,15,0) 30%,rgba(7,8,15,.78) 66%,var(--bg) 92%);pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:880px}
+.kicker{color:var(--cy);text-transform:none;letter-spacing:.02em;font-size:12.5px;margin-bottom:18px}
+.hero h1{font-size:clamp(54px,14vw,140px)}
+.lede{font-size:19px;max-width:560px;margin:22px 0 26px;color:#C9D3EE}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 22px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cy);cursor:pointer;transition:transform .15s,background .15s,color .15s,box-shadow .15s}
+.btn:active{transform:translateY(1px)}
+.btn.ink{background:var(--cy);color:var(--bg);box-shadow:0 0 18px rgba(34,230,255,.35)}.btn.ink:hover{background:var(--mg);border-color:var(--mg);box-shadow:0 0 22px rgba(255,43,214,.5)}
+.btn.line{background:transparent;color:var(--ink)}.btn.line:hover{background:var(--cy);color:var(--bg)}
+.btn.sm{height:44px;padding:0 18px}
+.hero-foot{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);color:var(--mute)}
 
-<section id="feed"><h2>刚刚上车 🚃</h2><p class="sub" id="feedNote">合约上线后，这里会实时显示最新铸造的萌宝。</p><div class="feed" id="feedGrid"></div></section><section id="gallery"><h2>萌宝图鉴</h2><p class="sub">部分样本。所有图片由合约在链上实时生成。</p><div class="gal"><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSIxNSIgeT0iNSIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzhDOThBQSIvPjxyZWN0IHg9IjE1IiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY1QzVDIi8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGN0E0NSIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQjhDNEQ2Ii8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0I4QzRENiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNCOEM0RDYiLz48cmVjdCB4PSIxMSIgeT0iMTEiIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiBmaWxsPSIjMkIzNDQ1Ii8+PHJlY3QgeD0iMTIiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjNUNGN0ZGIi8+PHJlY3QgeD0iMTgiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjNUNGN0ZGIi8+PHJlY3QgeD0iMTIiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTgiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTUiIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTUiIHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjUiIGZpbGw9IiM1NTU1NTUiLz48cmVjdCB4PSIxNCIgeT0iMiIgd2lkdGg9IjMiIGhlaWdodD0iMiIgZmlsbD0iIzNGRjdGRiIvPjxyZWN0IHg9IjExIiB5PSIxMiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMSIgeT0iMTMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxNyIgeT0iMTMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48L3N2Zz4=" alt=""><figcaption>#3</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkY3QTQ1Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjdBNDUiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjdBNDUiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNUY1RjUiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRjVGNUY1Ii8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0Y1RjVGNSIvPjxyZWN0IHg9IjExIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE3IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMSIgeT0iMTIiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTEiIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTciIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjwvc3ZnPg==" alt=""><figcaption>#7</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNEOURFRTYiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRUVGMUY1Ii8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iOSIgeT0iNyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjEwIiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iMTAiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSIxOSIgeT0iNyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjIwIiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iMjEiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSIxMCIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGNUM4QSIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY1QzhBIi8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY1QzhBIi8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRjZDMjhCIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0Y2QzI4QiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNkMyOEIiLz48cmVjdCB4PSI3IiB5PSIxNSIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIyIiB5PSIxNSIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjciIHk9IjE3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjIiIHk9IjE3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTIiIHk9IjE0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjE0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTUiIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjYiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzIiBmaWxsPSIjMUYzQTY4Ii8+PHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEiIGZpbGw9IiMxNDI4NEEiLz48cmVjdCB4PSIxNSIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMCIgeT0iMzEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMSIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIxIiB5PSIzMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMwIiB5PSIzMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjwvc3ZnPg==" alt=""><figcaption>#12</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMTAiIHk9IjIiIHdpZHRoPSIzIiBoZWlnaHQ9IjciIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxOSIgeT0iMiIgd2lkdGg9IjMiIGhlaWdodD0iNyIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjExIiB5PSIzIiB3aWR0aD0iMSIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZCM0M2Ii8+PHJlY3QgeD0iMjAiIHk9IjMiIHdpZHRoPSIxIiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkIzQzYiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjM0ZBOUY1Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiMzRkE5RjUiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiMzRkE5RjUiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMTkiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjRGIi8+PC9zdmc+" alt=""><figcaption>#21</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMxRTIxNTAiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjMkUzMjcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMjAiIHk9IjMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkUyN0EiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjQjA3QTUyIi8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiNCMDdBNTIiLz48cmVjdCB4PSIxMCIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzVBNDYzNiIvPjxyZWN0IHg9IjIxIiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNUE0NjM2Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGQjYyNyIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQjA3QTUyIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0IwN0E1MiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNCMDdBNTIiLz48cmVjdCB4PSIxMiIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIyMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIxNSIgeT0iMTciIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iNyIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iI0ZGNEY3QiIvPjxyZWN0IHg9IjIyIiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjEiIHk9IjgiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMjE4NUIiLz48cmVjdCB4PSI1IiB5PSI1IiB3aWR0aD0iMSIgaGVpZ2h0PSIzIiBmaWxsPSIjRkZFMjdBIi8+PHJlY3QgeD0iNCIgeT0iNiIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRTI3QSIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMzEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIzMSIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48L3N2Zz4=" alt=""><figcaption>#44</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNCRkU4RkYiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRTlGN0ZGIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTUiIHk9IjciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEzIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE0IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE5IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIwIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0ZGOUEyRSIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMTkiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjRGIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PC9zdmc+" alt=""><figcaption>#58</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNCRkU4RkYiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRTlGN0ZGIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTAiIHk9IjIiIHdpZHRoPSIzIiBoZWlnaHQ9IjciIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxOSIgeT0iMiIgd2lkdGg9IjMiIGhlaWdodD0iNyIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjExIiB5PSIzIiB3aWR0aD0iMSIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZCM0M2Ii8+PHJlY3QgeD0iMjAiIHk9IjMiIHdpZHRoPSIxIiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkIzQzYiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZCNjI3Ii8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkI2MjciLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxMSIgeT0iMTIiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTEiIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTciIHk9IjEzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PC9zdmc+" alt=""><figcaption>#101</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiM5RkYzRkYiLz48cmVjdCB4PSIxOCIgeT0iNyIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzlGRjNGRiIvPjxyZWN0IHg9IjExIiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTkiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiM5RkYzRkYiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjOUZGM0ZGIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iIzlGRjNGRiIvPjxyZWN0IHg9IjEyIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEzIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE0IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE5IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIwIiB5PSIxMyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE0IiB5PSIxNyIgd2lkdGg9IjQiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE1IiB5PSIxOCIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjExIiB5PSI2IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjExIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTUiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxOSIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjE1IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjMiIHk9IjIxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMjQiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjQjZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjwvc3ZnPg==" alt=""><figcaption>#330 · 1/1</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMTUiIHk9IjciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNFMDExNUYiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFMDExNUYiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRTAxMTVGIi8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0UwMTE1RiIvPjxyZWN0IHg9IjEyIiB5PSIxNCIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxNCIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0ZGOUEyRSIvPjxyZWN0IHg9IjExIiB5PSI2IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjExIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTUiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxOSIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjE1IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjMiIHk9IjIxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMjQiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjQjZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PC9zdmc+" alt=""><figcaption>#1320 · 1/1</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiBmaWxsPSIjRkY1QzhBIi8+PHJlY3QgeD0iOSIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIxIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIxNCIgeT0iMjMiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMSIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMjciIHdpZHRoPSIzIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNUY1RjUiLz48cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRjVGNUY1Ii8+PHJlY3QgeD0iMTAiIHk9IjIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0Y1RjVGNSIvPjxyZWN0IHg9IjExIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE3IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMzMzMzMzIi8+PHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiNGRjVDOEEiLz48cmVjdCB4PSIyMyIgeT0iMjEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMzRkY3RkYiLz48cmVjdCB4PSIyNCIgeT0iMjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNCNkZGRkYiLz48L3N2Zz4=" alt=""><figcaption>#2222</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iOSIgeT0iNyIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjIwIiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGRDcwMCIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjOEU0NEZGIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzhFNDRGRiIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiM4RTQ0RkYiLz48cmVjdCB4PSIxMSIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxNyIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMiIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMyIgeT0iMTIiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxNCIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOSIgeT0iMTIiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIyMCIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIyMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIxNCIgeT0iMTciIHdpZHRoPSI0IiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxNSIgeT0iMTgiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIxMSIgeT0iNiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxMSIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjE1IiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTkiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxNSIgeT0iNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGNEY3QiIvPjxyZWN0IHg9IjIzIiB5PSIyMSIgd2lkdGg9IjQiIGhlaWdodD0iNCIgZmlsbD0iIzNGRjdGRiIvPjxyZWN0IHg9IjI0IiB5PSIyMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0I2RkZGRiIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMzEiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjQzBDN0Q2Ii8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIzMSIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMzIiIGZpbGw9IiNDMEM3RDYiLz48L3N2Zz4=" alt=""><figcaption>#2970 · 1/1</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyQTBGNDUiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjNEExQTcwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMTUiIHk9IjUiIHdpZHRoPSIyIiBoZWlnaHQ9IjMiIGZpbGw9IiM4Qzk4QUEiLz48cmVjdCB4PSIxNSIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGNUM1QyIvPjxyZWN0IHg9IjEwIiB5PSIyMSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjYiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSI5IiB5PSIyMiIgd2lkdGg9IjEiIGhlaWdodD0iNCIgZmlsbD0iI0ZGRDcwMCIvPjxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9IjEiIGhlaWdodD0iNCIgZmlsbD0iI0ZGRDcwMCIvPjxyZWN0IHg9IjE0IiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjExIiB5PSIyNyIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjE4IiB5PSIyNyIgd2lkdGg9IjMiIGhlaWdodD0iMSIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjEwIiB5PSI5IiB3aWR0aD0iMTIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRjZFMCIvPjxyZWN0IHg9IjkiIHk9IjEwIiB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIGZpbGw9IiNGRkY2RTAiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZGNkUwIi8+PHJlY3QgeD0iMTEiIHk9IjExIiB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0iIzJCMzQ0NSIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzVDRjdGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMyIgZmlsbD0iIzVDRjdGRiIvPjxyZWN0IHg9IjEyIiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjE4IiB5PSIxMiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGOUZCOCIvPjxyZWN0IHg9IjE1IiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzJCMjIzOCIvPjxyZWN0IHg9IjExIiB5PSI2IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjExIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZEODRBIi8+PHJlY3QgeD0iMTUiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkQ4NEEiLz48cmVjdCB4PSIxOSIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjE1IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjMiIHk9IjIxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjM0ZGN0ZGIi8+PHJlY3QgeD0iMjQiIHk9IjIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjQjZGRkZGIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFOEI5MjMiLz48cmVjdCB4PSIzMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iI0U4QjkyMyIvPjxyZWN0IHg9IjEiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PHJlY3QgeD0iMzAiIHk9IjMwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjRThCOTIzIi8+PC9zdmc+" alt=""><figcaption>#3300 · 1/1</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSI5IiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMjAiIHk9IjciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIxMCIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzVBNDYzNiIvPjxyZWN0IHg9IjIxIiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNUE0NjM2Ii8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGNEZEOCIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0ZGRDcwMCIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIxMiIgeT0iMTMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iMTMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMiIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxOCIgeT0iMTMiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIyMCIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjlGQjgiLz48cmVjdCB4PSIxNSIgeT0iMTciIHdpZHRoPSIyIiBoZWlnaHQ9IjEiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxOCIgeT0iNyIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iI0ZGNEY3QiIvPjxyZWN0IHg9IjIyIiB5PSI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIiBmaWxsPSIjRkY0RjdCIi8+PHJlY3QgeD0iMjEiIHk9IjgiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMjE4NUIiLz48L3N2Zz4=" alt=""><figcaption>#102 · 传说</figcaption></figure><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNGRkIzOEEiLz48cmVjdCB5PSIyMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRkZEREIwIi8+PHJlY3QgeD0iMCIgeT0iMjciIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMCIgeT0iMzAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIxIiBmaWxsPSIjNkI1QjczIi8+PHJlY3QgeD0iMSIgeT0iMjciIHdpZHRoPSIyIiBoZWlnaHQ9IjQiIGZpbGw9IiM4QTZGNUEiLz48cmVjdCB4PSI1IiB5PSIyNyIgd2lkdGg9IjIiIGhlaWdodD0iNCIgZmlsbD0iIzhBNkY1QSIvPjxyZWN0IHg9IjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTMiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMTciIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjEiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjUiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjkiIHk9IjI3IiB3aWR0aD0iMiIgaGVpZ2h0PSI0IiBmaWxsPSIjOEE2RjVBIi8+PHJlY3QgeD0iMjMiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkYxQTgiLz48cmVjdCB4PSI4IiB5PSI1IiB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMTkiIHk9IjUiIHdpZHRoPSI1IiBoZWlnaHQ9IjUiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSI4IiB5PSI1IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjIiIHk9IjUiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMyQjIyMzgiLz48cmVjdCB4PSIxMCIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjIwIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTAiIHk9IjIxIiB3aWR0aD0iMTIiIGhlaWdodD0iNiIgZmlsbD0iI0ZGNEZEOCIvPjxyZWN0IHg9IjkiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI0IiBmaWxsPSIjRkY0RkQ4Ii8+PHJlY3QgeD0iMTQiIHk9IjIzIiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiBmaWxsPSIjRkZGRkZGIi8+PHJlY3QgeD0iMTEiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjI3IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0iI0ZGRDcwMCIvPjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRkQ3MDAiLz48cmVjdCB4PSIxMSIgeT0iMTYiIHdpZHRoPSIxMCIgaGVpZ2h0PSI0IiBmaWxsPSIjRkZGNEU2Ii8+PHJlY3QgeD0iMTIiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTMiIHk9IjEyIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTQiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTgiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTkiIHk9IjEyIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMjAiIHk9IjEzIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTQiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIxIiBmaWxsPSIjMkIyMjM4Ii8+PHJlY3QgeD0iMTUiIHk9IjE4IiB3aWR0aD0iMiIgaGVpZ2h0PSIxIiBmaWxsPSIjRkY5RkI4Ii8+PHJlY3QgeD0iMTAiIHk9IjYiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzIiBmaWxsPSIjMUYzQTY4Ii8+PHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEiIGZpbGw9IiMxNDI4NEEiLz48cmVjdCB4PSIxNSIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMSIgZmlsbD0iI0ZGRDg0QSIvPjxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjMiIGZpbGw9IiNGRkUyN0EiLz48cmVjdCB4PSI0IiB5PSI2IiB3aWR0aD0iMyIgaGVpZ2h0PSIxIiBmaWxsPSIjRkZFMjdBIi8+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIzMSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjEiIGZpbGw9IiNDMEM3RDYiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjxyZWN0IHg9IjMxIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIzMiIgZmlsbD0iI0MwQzdENiIvPjwvc3ZnPg==" alt=""><figcaption>#117 · 传说</figcaption></figure></div></section>
+.sec{padding:84px 20px;max-width:1080px;margin:0 auto;border-bottom:1px solid var(--rule)}
+.art-no{color:var(--cy);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.art-no:after{content:"";height:1px;width:48px;background:var(--mg);box-shadow:0 0 6px var(--mg)}
+.sec h2{font-size:clamp(40px,9vw,78px);margin-bottom:24px;max-width:820px}
+.body{max-width:620px;font-size:18px;color:#C9D3EE}
+.body+.body{margin-top:14px}
 
-<section id="rarity"><h2>稀有度与特征</h2><p class="sub">13,824 种组合里抽出 3,300 只，保证没有两只完全相同。</p>
-<div class="traits">
-<div><b>🐾 物种 ×8</b>猫、兔、熊、狐狸、青蛙、熊猫、小鸭、机器人</div>
-<div><b>🎩 帽子 ×8</b>无、耳机、棒球帽、列车长帽、头盔、皇冠、蝴蝶结、天线</div>
-<div><b>🧥 卫衣 ×6</b>粉、天蓝、芒果、葡萄、薄荷、珊瑚</div>
-<div><b>💎 道具 ×6</b>无、能量方块、金币、围巾、墨镜、星星</div>
-<div><b>🌦 天气 ×6</b>白天、夜晚、下雨、雾、日落、霓虹</div>
-<div><b>😊 表情 ×5</b>开心、眨眼、困困、惊讶、大笑</div>
-<div><b>✨ 传说 ≈98 只</b>金色皮肤 + 霓虹粉卫衣</div>
-<div><b>👑 1/1 ×10</b>编号 #330、#660 … #3300，各自独特配色，皇冠 + 能量方块 + 霓虹夜</div>
-</div></section>
+.toy{margin:34px 0 26px;background:var(--panel);border:1px solid var(--rule);padding:18px;outline:none}
+.toy:focus-within{border-color:rgba(34,230,255,.5)}
+.x-moves{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.x-moves .chip{min-width:44px;height:44px;font-size:13px;padding:0 14px;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.toy-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;color:var(--mute)}
+.toy-meta b{color:var(--cy);font-weight:500}
+.toy-meta .sp{margin-right:auto;display:flex;gap:18px}
+.x-seq{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mute);min-height:1.6em;margin-bottom:12px}
+#runCanvas{display:block;width:100%;aspect-ratio:1.6;background:var(--bg);touch-action:none;outline:none;cursor:pointer}
+#runCanvas:focus-visible{box-shadow:0 0 0 2px var(--cy)}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:1px solid var(--rule);color:var(--ink);padding:0 12px;min-height:44px;cursor:pointer}
+.chip:hover{border-color:var(--cy);color:var(--cy)}
+.chip.on{background:var(--cy);color:var(--bg);border-color:var(--cy)}
 
+.forms{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 26px}
+.form{position:relative;background:var(--panel);border:1px solid var(--rule);overflow:hidden}
+.form canvas{display:block;width:100%;aspect-ratio:1;height:auto}
+.form figcaption{padding:12px 12px 14px}
+.form figcaption b{display:block;font-family:var(--sans);font-weight:500;font-size:22px;letter-spacing:-.01em}
+.form figcaption span{color:var(--mute);font-size:14px;line-height:1.35;display:block;margin-top:2px}
+.pals{display:flex;flex-wrap:wrap;gap:8px}
+.pal{display:flex;align-items:center;gap:8px;border:1px solid var(--rule);padding:6px 10px 6px 6px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--ink);cursor:pointer;min-height:44px}
+.pal:hover,.pal.on{border-color:var(--cy)}
+.pal.on{box-shadow:0 0 12px rgba(34,230,255,.25)}
+.pal .sw{display:flex}.pal .sw i{width:9px;height:20px;display:block}
 
+.ledger{margin:34px 0;border-top:1px solid var(--cy)}
+.l-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
+.l-row .k{color:var(--mute)}.l-row .v{font-size:22px;font-weight:300}.l-row .v b{font-weight:500}
+.l-row .v.mono{font-size:12px;color:var(--ink)}
+.meter{position:relative;height:10px;margin:6px 0 4px;background:repeating-linear-gradient(90deg,rgba(120,140,255,.2) 0 1px,transparent 1px 10px)}
+.meter div{height:100%;width:0;background:var(--cy);transition:width .8s}
+.meter .tick{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--mg)}
 
-<section id="faq"><h2>常见问题</h2>
-<details><summary>免费铸造为什么还要 0.0002 BNB？</summary><p>NFT 本身免费，但每次免费铸造需支付 0.0002 BNB 铸造费给合约，用于项目运营。另外 BNB 链网络 gas 由钱包另行收取（通常不到 0.0001 BNB）。</p></details>
-<details><summary>图片存在哪里？</summary><p>100% 在链上。tokenURI 直接返回 SVG 像素画和属性，不依赖任何服务器或 IPFS。</p></details>
-<details><summary>付费档和免费档有什么区别？</summary><p>角色来自同一个池子，稀有度机会相同；Rider 有银色车票边框，Express 有金色车票边框，并可一次铸造多只。每个钱包总共最多 5 只（含免费票）。</p></details>
-<details><summary>怎样避免诈骗？</summary><p>只使用本页公布的合约地址。铸造只调用 freeMint / mintRider / mintExpress，不需要任何代币授权或签名消息。永远不要把助记词或私钥告诉任何人。</p></details>
-</section>
-<div class="reveal" id="reveal"><div class="box"><h2>🎉 欢迎上车！</h2><div id="revImgs"></div><p id="revTxt"></p><button class="btn" id="revClose">好耶</button> <a href="https://element.market/collections/guidaomengbao-railpals" target="_blank" rel="noopener"><button class="btn mint">在 Element 查看</button></a></div></div><div class="reveal" id="wModal"><div class="box"><h2>👛 用钱包打开</h2><p style="line-height:1.6">当前浏览器没有钱包（例如 Telegram 内置浏览器）。点下面的钱包，会直接在钱包里打开本页，然后再点一次铸造即可。</p><div class="wl"><a class="btn" id="wMM">MetaMask</a><a class="btn sky" id="wTW">Trust Wallet</a><a class="btn gold" id="wOKX">OKX 钱包</a><a class="btn mint" id="wTP">TokenPocket</a><button class="btn" id="wCopy" style="background:#fff;color:var(--ink)">复制链接（币安钱包等粘贴打开）</button></div><button class="btn" id="wClose" style="margin-top:10px;background:#eee;color:var(--ink)">关闭</button></div></div><footer>轨道萌宝 RailPals · BNB Chain · 合约：<code class="ca">0xC500b9b277d1A9717f8c96bD4228E16ee134a71A</code> · <a href="https://element.market/collections/guidaomengbao-railpals" target="_blank" rel="noopener">Element 市场</a></footer>
+.steps{list-style:none;margin:10px 0 30px}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:18px 0;border-bottom:1px solid var(--rule);color:#C9D3EE}
+.steps li>span{color:var(--mg);padding-top:4px}
+.steps b{font-weight:500;color:var(--ink)}
+.code{border:1px solid var(--cy);background:var(--panel);margin-bottom:12px}
+.code-top{display:flex;justify-content:space-between;align-items:center;padding:8px 8px 8px 14px;border-bottom:1px solid var(--rule);color:var(--mute)}
+.code pre{font-family:var(--mono);font-size:12.5px;line-height:1.7;padding:16px 14px;overflow-x:auto;white-space:pre;color:var(--ink)}
+.code.dark{background:#04050A;border-color:var(--mg)}
+.caddr{color:var(--cy)}.code.dark .caddr{color:var(--mg)}
+.check{margin-top:28px}
+.check label{display:block;color:var(--mute);margin-bottom:8px}
+.check-row{display:flex;gap:8px}
+.check input{flex:1;min-width:0;height:44px;padding:0 12px;font-family:var(--mono);font-size:13px;background:var(--panel);border:1px solid var(--rule);color:var(--ink);outline:none}
+.check input:focus{border-color:var(--cy)}
+#whoOut{margin-top:10px;text-transform:none;letter-spacing:.02em;min-height:1.4em;color:var(--mute)}
+
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.empty{grid-column:1/-1;color:var(--mute);padding:40px 0;text-align:center;border:1px dashed var(--rule)}
+
+details{border-bottom:1px solid var(--rule);max-width:760px}
+summary{cursor:pointer;list-style:none;padding:20px 0;font-size:22px;font-weight:400;display:flex;justify-content:space-between;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-family:var(--mono);color:var(--mg)}
+details[open] summary:after{content:"−"}
+details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
+
+.foot{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;padding:26px 20px 40px;max-width:1080px;margin:0 auto;color:var(--mute)}
+.foot a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.foot span{display:inline-flex;align-items:center;min-height:44px}.foot a:hover{color:var(--cy)}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+
+@media (min-width:760px){
+  .bar{padding:16px 36px}.nav{display:flex}
+  .hero{padding:0 36px 30px}.sec{padding:120px 36px}
+  .forms{grid-template-columns:repeat(4,1fr)}
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .foot{padding:30px 36px 50px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.pal.x-shuffle{padding:6px 12px;border-style:dashed;color:var(--cy)}
+.x-prev-label{color:var(--mute);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+.x-prev-label:before{content:"";width:7px;height:7px;background:var(--mg);box-shadow:0 0 8px var(--mg)}
+.x-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.x-card{background:var(--panel);border:1px solid var(--rule);overflow:hidden;display:flex;flex-direction:column}
+.x-card:hover{border-color:rgba(34,230,255,.5)}
+.x-card canvas,.form canvas{display:block;width:calc(100% - 16px);margin:8px 8px 0;aspect-ratio:1;height:auto;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.x-card-meta{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px}
+.x-card-meta .x-id{color:var(--cy)}
+.x-card-meta b{font-weight:500;font-size:18px;letter-spacing:-.01em;line-height:1.2}
+.x-card-meta span{color:var(--mute);font-size:14px}
+.x-card-act{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 12px;margin-top:auto}
+.x-card-act button{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;min-height:44px;background:transparent;border:1px solid var(--rule);color:var(--mute);cursor:not-allowed;padding:0 6px}
+.x-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--cy);border-bottom:1px solid var(--rule);margin:30px 0 20px}
+.x-stats div{padding:16px 0}
+.x-stats div+div{border-left:1px solid var(--rule);padding-left:14px}
+.x-stats b{display:block;font-size:clamp(24px,5vw,34px);font-weight:500;letter-spacing:-.02em}
+.x-stats span{color:var(--mute)}
+.x-filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.x-filters select,.x-filters input{width:100%;min-width:0;height:44px;padding:0 12px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel);border:1px solid var(--rule);color:var(--ink);outline:none;border-radius:0}
+.x-filters input{text-transform:none;font-size:13px}
+.x-filters select:focus,.x-filters input:focus{border-color:var(--cy)}
+.x-count{color:var(--mute);margin-bottom:12px}
+.x-gen{margin-top:22px}.x-gen canvas,.x-lb canvas{display:block;width:100%;aspect-ratio:1;height:auto;max-width:520px;margin:0 auto}
+.x-seed{width:9ch;min-height:44px;margin-left:8px;background:transparent;border:1px solid var(--rule);color:var(--ink);font:inherit;padding:0 8px}.x-seed:focus{outline:none;border-color:var(--cy)}
+#prevStrip .x-card{cursor:zoom-in}#prevStrip .x-card:focus-visible{outline:1px solid var(--cy)}
+.x-lb{background:var(--panel);border:1px solid var(--cy);color:var(--ink);padding:14px;width:min(560px,94vw);max-height:94vh}.x-lb::backdrop{background:rgba(4,5,10,.85)}.x-lb .toy-meta{margin:12px 0 0}.x-lb .chip{min-width:44px}
+.x-none{grid-column:1/-1;color:var(--mute);padding:40px 0;text-align:center;border:1px dashed var(--rule)}
+.x-note{color:var(--mute);margin-top:18px;max-width:620px;font-size:14px}
+@media (min-width:760px){.x-cards{grid-template-columns:repeat(4,1fr)}.x-filters{grid-template-columns:1fr 1fr 1fr 1.2fr}}
+.mk-pill{text-decoration:none;border:1px solid var(--mg);padding:0 10px;display:inline-flex;align-items:center;min-height:44px;color:var(--ink);white-space:nowrap}.mk-pill:hover{background:var(--mg);color:var(--bg)}
+@media (max-width:420px){.bar .count{display:none}}
+.x-run3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:360px}.x-run3 canvas{display:block;width:100%;aspect-ratio:1;border:1px solid var(--rule)}
+.x-runlab{margin:14px 0 8px}
+.x-ghost{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 2s;pointer-events:none;mix-blend-mode:screen}.x-ghost.on{opacity:.25}
+.x-tt{display:none;float:right;width:120px;height:120px;margin:0 0 16px 20px;border:1px solid var(--rule)}
+@media (min-width:760px){.x-tt{display:block}}
+.x-marq{overflow:hidden;border-bottom:1px solid var(--rule);padding:14px 0;background:var(--panel)}
+.x-marq-track{display:flex;width:max-content;animation:x-marq 48s linear infinite}
+.x-marq:hover .x-marq-track{animation-play-state:paused}
+.x-marq canvas{display:block;width:88px;height:88px;margin-right:10px;border:1px solid var(--rule);flex:none}
+@keyframes x-marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.x-marq-track{animation:none;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 2 4 22M15 2l5 20" stroke="#22E6FF"/><path d="M6 17h12M7.5 11h9M8.7 6h6.6" stroke="#FF2BD6"/></svg>RAILIX</a>
+  <nav class="nav mono"><a href="#run">Track</a><a href="#tracks">Shapes</a><a href="#mint">Board</a><a href="#runners">Depot</a><a href="#market">Exchange</a></nav>
+  <a class="mono mk-pill" href="#market">Exchange · soon</a>
+  <div class="count mono"><i></i><b id="barCount">0</b>/4444</div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <canvas class="x-ghost" aria-hidden="true"></canvas><canvas class="x-ghost" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <p class="kicker mono">rail·ix &nbsp;/ rail + ix / &nbsp;n. a line of light laid by a seed; the track a runner never leaves</p>
+      <h1 class="display">Small runs.<br><em>Endless rails.</em></h1>
+      <p class="lede">4,444 rail lines on BNB Chain. Every Railix is one track, one light, and one runner, laid down from a seed fixed the moment an AI agent boards and mints it.</p>
+      <div class="cta"><a class="btn ink" href="#mint">Board as an agent</a><a class="btn line" href="#run">Ride the track</a></div>
+    </div>
+    <div class="hero-foot mono"><span>Series I</span><span>BNB Chain</span><span>Agent conductors only</span></div>
+  </section>
+
+  <section class="sec" id="run">
+    <div class="art-no mono">Line 01 · The Track</div>
+    <h2 class="display">The track fits on three lanes.</h2>
+    <p class="body">Three lanes, one runner, four moves: left, right, jump, slide. That is the whole rule of the rail. Take the controls below and watch a line write itself, metre by metre.</p>
+    <div class="toy" id="runToy">
+      <div class="x-moves" id="runMoves">
+        <button class="chip" data-a="left">← Left</button><button class="chip" data-a="right">Right →</button><button class="chip" data-a="jump">↑ Jump</button><button class="chip" data-a="slide">↓ Slide</button>
+      </div>
+      <div class="toy-meta mono"><span class="sp"><span>Distance <b id="runDist">0 m</b></span><span>Coins <b id="runCoins">0</b></span></span><button class="chip" id="runRand" aria-pressed="false">Random run</button><button class="chip" id="runRestart">Restart</button></div>
+      <p class="x-seq" id="runStatus" aria-live="polite">Ready. Press a move, an arrow key, or swipe to start.</p>
+      <canvas id="runCanvas" tabindex="0" role="img" aria-label="A three-lane neon runner. Arrow keys or swipes move, jump and slide."></canvas>
+      <p class="x-seq x-runlab">Your run, drawn</p>
+      <div class="x-run3" id="run3" aria-hidden="true"><canvas></canvas><canvas></canvas><canvas></canvas></div>
+    </div>
+    <p class="body small">Most runs end at the first obstacle. Railix keeps only the lines worth riding.</p>
+  </section>
+
+  <section class="sec" id="tracks">
+    <div class="art-no mono">Line 02 · The Shapes</div>
+    <h2 class="display">Four shapes a rail can take.</h2>
+    <div class="forms" id="formGrid"></div>
+    <div class="pals" id="pals"></div>
+    <div class="toy x-gen" id="gen">
+      <div class="toy-meta mono"><label class="sp" for="genSeed">Seed <input id="genSeed" class="x-seed" type="number" min="0" max="999999" value="4444" inputmode="numeric"></label><button class="chip" id="genPrev" aria-label="Previous seed">← Prev</button><button class="chip" id="genNext" aria-label="Next seed">Next →</button><button class="chip" id="genRand">Random</button></div>
+      <p class="x-seq" id="genOut" aria-live="polite"></p>
+      <canvas id="genCanvas" role="img" aria-label="A Railix line drawn from the chosen seed"></canvas>
+    </div>
+  </section>
+
+  <div class="x-marq" aria-hidden="true"><div class="x-marq-track" id="marq"></div></div>
+
+  <section class="sec mint" id="mint">
+    <div class="art-no mono">Line 03 · Boarding</div>
+    <h2 class="display">Only agents may board.</h2>
+    <p class="body">The contract lets one kind of passenger on: a Binance Agentic Wallet holding an Agent ID. Ordinary wallets and other contracts are turned away at the gate, on-chain. One line per wallet.</p>
+
+    <div class="ledger">
+      <div class="l-row"><span class="mono k">Lines laid</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
+      <div class="meter"><div id="mFill"></div><span class="tick" style="left:10%"></span></div>
+      <div class="l-row"><span class="mono k">Lines left</span><span class="v" id="mLeft">4,444</span></div>
+      <div class="l-row"><span class="mono k">Signal</span><span class="v mono" id="mStatus">Awaiting contract</span></div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="mono">01</span><div><b>Get your ticket.</b> Hold an Agent ID, claimed in the Binance Wallet app under your Agentic Wallet. The gate checks it first.</div></li>
+      <li><span class="mono">02</span><div><b>Call mint().</b> One call, no arguments. Read <code>currentPrice()</code> and send exactly that fare.</div></li>
+      <li><span class="mono">03</span><div><b>Your line is laid.</b> The block sets the seed; the seed lays the shape, the light and the runner. Nothing is curated after departure.</div></li>
+    </ol>
+
+    <div class="code">
+      <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
+      <pre id="prompt">Board and mint one Railix on BNB Chain (chain id 56).
+Contract: <span class="caddr">0xYOUR_CONTRACT_ADDRESS</span>
+Call mint() with calldata 0x1249c58b.
+Value: read currentPrice() on the contract and send exactly that.</pre>
+    </div>
+    <div class="code dark">
+      <div class="code-top mono"><span>baw CLI</span><button class="chip" data-copy="cli">Copy</button></div>
+      <pre id="cli">baw contract-call preview --binanceChainId 56 \
+  --from &lt;your agentic wallet&gt; \
+  --to <span class="caddr">0xYOUR_CONTRACT_ADDRESS</span> \
+  --value &lt;currentPrice() in wei&gt; --inputData 0x1249c58b --json
+
+baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
+    </div>
+    <div class="check">
+      <label class="mono" for="who">Check a ticket</label>
+      <div class="check-row"><input id="who" placeholder="0x…" autocomplete="off" spellcheck="false"><button class="btn ink sm" id="whoBtn">Check</button></div>
+      <p class="mono small" id="whoOut" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="sec" id="runners">
+    <div class="art-no mono">Line 04 · The Depot</div>
+    <h2 class="display">Lines laid so far.</h2>
+    <div class="gallery" id="gallery"><p class="empty mono">The first line is waiting for its conductor.</p></div>
+    <p class="x-prev-label mono">Preview · not yet laid</p>
+    <div class="x-cards" id="prevStrip"></div>
+    <dialog class="x-lb" id="lb" aria-label="Railix line, enlarged">
+      <canvas id="lbCanvas" role="img" aria-label=""></canvas>
+      <div class="toy-meta mono"><span class="sp" id="lbMeta"></span><button class="chip" id="lbPrev" aria-label="Previous line">←</button><button class="chip" id="lbNext" aria-label="Next line">→</button><button class="chip" id="lbClose">Close</button></div>
+    </dialog>
+  </section>
+
+  <section class="sec" id="market">
+    <div class="art-no mono">Line 05 · The Exchange · Coming soon</div>
+    <h2 class="display">The exchange.</h2>
+    <p style="max-width:620px;color:var(--mute);margin-bottom:26px">Where Railix lines change hands, with every laid line and its owner on one board. Buying, selling and offers open soon through Element on BNB Chain.</p>
+    <div class="x-stats mono">
+      <div><b>—</b><span>Lines laid</span></div>
+      <div><b>—</b><span>Owners</span></div>
+      <div><b>4,444</b><span>Max lines</span></div>
+    </div>
+    <div class="x-filters">
+      <select id="fForm" aria-label="Filter by shape"><option value="">All shapes</option></select>
+      <select id="fPal" aria-label="Filter by light"><option value="">All lights</option></select>
+      <select id="fSort" aria-label="Sort"><option value="new">Newest</option><option value="old">Oldest</option></select>
+      <input id="fSearch" type="search" placeholder="Search line #" aria-label="Search by line number" autocomplete="off" spellcheck="false" inputmode="numeric">
+    </div>
+    <p class="x-count mono" id="mkCount" aria-live="polite"></p>
+    <div class="x-cards" id="mkGrid"></div>
+    <p class="x-note">Exchange preview. Trading is not open yet. Railix is a standard ERC-721 on BNB Chain.</p>
+  </section>
+
+  <section class="sec" id="notes">
+    <canvas class="x-tt" id="ttArt" role="img" aria-label="Railix line from seed 4444"></canvas>
+    <div class="art-no mono">Timetable</div>
+    <details><summary>Why only agents?</summary><p>Railix lines run without a hand on the controls, so they are laid by software that acts on its own. The contract requires the SPACE ID Agent ID that Binance Agentic Wallets claim and rejects calls from contracts.</p></details>
+    <details><summary>What decides my line?</summary><p>A seed from the block and your address at mint. It picks the shape, the light and the runner's path. The same seed always lays the same line.</p></details>
+    <details><summary>Where does it live?</summary><p>The seed is stored on BNB Chain. The drawing code is open and runs on this site, so anyone can redraw any Railix from its number.</p></details>
+    <details><summary>What comes with it?</summary><p>A rail line, drawn. No token, no roadmap, no promises.</p></details>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <span>RAILIX · SERIES I · 4,444 LINES</span>
+  <a id="cLink" href="#">Contract 0xYOUR…ADDR ↗</a>
+</footer>
+
 <script>
-const CONTRACT_ADDRESS="0xC500b9b277d1A9717f8c96bD4228E16ee134a71A";const RPC="https://bsc-rpc.publicnode.com";const MAX=3300;
-const SEL={free:"0x5b70ea9f",rider:"0x5ae59bef",express:"0xaed2bb80",supply:"0x18160ddd"};
-const FEE=200000000000000n,RIDER=2000000000000000n,EXPRESS=3000000000000000n;
-const $=id=>document.getElementById(id);let eth=null,account=null,q={r:1,e:1};
-const live=/^0x[0-9a-fA-F]{40}$/.test(CONTRACT_ADDRESS);
-if(live)document.querySelectorAll(".ca").forEach(e=>e.textContent=CONTRACT_ADDRESS);
-document.querySelectorAll(".qty button").forEach(b=>b.onclick=()=>{const k=b.dataset.q;q[k]=Math.min(5,Math.max(1,q[k]+ +b.dataset.d));$("q"+k).textContent=q[k]});
-async function rpc(m,p){const r=await fetch(RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:m,params:p})});const j=await r.json();if(j.error)throw new Error(j.error.message);return j.result}
-async function refresh(){if(!live)return;try{const n=parseInt(await rpc("eth_call",[{to:CONTRACT_ADDRESS,data:SEL.supply},"latest"]),16);$("minted").textContent=n.toLocaleString();if(n<100){$("ebLeft").textContent=100-n;$("barFill").style.width=(n/100*100)+"%";}else{$("ebLabel").innerHTML="已铸造 <b>"+n.toLocaleString()+"</b> / 3,300";$("ebPerk").textContent="早鸟名额已满，感谢 100 位首发乘客 🚃";$("barFill").style.width=(n/MAX*100)+"%";}$("liveNote").textContent=n>=MAX?"已售罄":"实时链上数据"}catch(e){}}
-function status(h,k){const s=$("status");s.className="status"+(k?" "+k:"");s.innerHTML=h}
-async function getEth(){for(let i=0;i<30&&!eth;i++){eth=window.ethereum||(window.BinanceChain&&window.BinanceChain.request?window.BinanceChain:null)||window.okxwallet||null;if(!eth)await new Promise(r=>setTimeout(r,100))}return eth}
-async function ensureChain(){try{await eth.request({method:"wallet_switchEthereumChain",params:[{chainId:"0x38"}]})}catch(e){if(e&&e.code===4902){await eth.request({method:"wallet_addEthereumChain",params:[{chainId:"0x38",chainName:"BNB Smart Chain",nativeCurrency:{name:"BNB",symbol:"BNB",decimals:18},rpcUrls:["https://bsc-dataseed.binance.org"],blockExplorerUrls:["https://bscscan.com"]}]})}else throw e}}
-function openWalletModal(){const u=location.href.split("#")[0],host=u.replace(/^https?:\/\//,"");$("wMM").href="https://metamask.app.link/dapp/"+host;$("wTW").href="https://link.trustwallet.com/open_url?coin_id=20000714&url="+encodeURIComponent(u);$("wOKX").href="okx://wallet/dapp/url?dappUrl="+encodeURIComponent(u);$("wTP").href="tpdapp://open?params="+encodeURIComponent(JSON.stringify({url:u,chain:"BSC",source:"railpals"}));$("wModal").style.display="flex"}
-$("wClose").onclick=()=>$("wModal").style.display="none";
-$("wCopy").onclick=()=>{const u=location.href.split("#")[0];(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>$("wCopy").textContent="已复制 ✓ 去钱包浏览器粘贴").catch(()=>{prompt("复制这个链接：",u)})};
-async function connect(){if(account)return true;status("正在连接钱包…");if(!await getEth()){status("没有检测到钱包，请用钱包 App 打开本页。","err");openWalletModal();return false}
-try{const a=await eth.request({method:"eth_requestAccounts"});account=a[0];await ensureChain();$("connectBtn").textContent="✅ "+account.slice(0,6)+"…"+account.slice(-4);status(live?"钱包已连接 ✅":"钱包已连接。合约即将上线，敬请期待！","ok");loadMine();return true}catch(e){status("连接失败："+(e.message||e),"err");return false}}
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CY = '#22E6FF', MG = '#FF2BD6', BG = '#07080F';
+  function mulberry(a) {
+    return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+  function alpha(hex, a) { const n = parseInt(hex.slice(1), 16); return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')'; }
 
-async function batch(calls){const r=await fetch(RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(calls.map((d,i)=>({jsonrpc:"2.0",id:i,method:"eth_call",params:[{to:CONTRACT_ADDRESS,data:d},"latest"]})))});const j=await r.json();return (Array.isArray(j)?j:[j]).sort((a,b)=>a.id-b.id).map(x=>x.result)}
-async function loadMine(){if(!live||!account)return;const box=$("mine");try{box.innerHTML="<p class='sub'>正在读取你的萌宝…</p>";const n=parseInt(await callC(SEL.supply),16);const me=account.toLowerCase().slice(2);const ids=[];
-for(let s=1;s<=n;s+=100){const arr=[];for(let i=s;i<Math.min(n+1,s+100);i++)arr.push(i);const res=await batch(arr.map(i=>"0x6352211e"+pad(i)));res.forEach((x,k)=>{if(x&&x.slice(-40).toLowerCase()===me)ids.push(arr[k])})}
-if(!ids.length){box.innerHTML="<p class='sub'>你还没有萌宝，选一张车票上车吧 🚃</p>";return}
-const ms=await Promise.all(ids.map(meta));const EL="https://element.market/assets/bsc/"+CONTRACT_ADDRESS.toLowerCase()+"/";
-box.innerHTML="<h3>我的萌宝 ×"+ids.length+"</h3><p class='sub' style='margin-bottom:10px'>点「当角色」就能在小游戏里用它跑。</p><div class='mg'>"+ms.map((m,i)=>{const r=(m.attributes.find(a=>a.trait_type==="Rarity")||{}).value||"";const sp=(m.attributes.find(a=>a.trait_type==="Species")||{}).value||"";const t="我的「轨道萌宝 RailPals」#"+ids[i]+" "+sp+(r&&r!=="Common"?" ✨"+r:"")+" 上车啦！🚃 BNB 链全链上像素萌宝 "+location.href.split("#")[0];return "<figure data-id='"+ids[i]+"'><img src='"+m.image+"'><div>#"+ids[i]+" "+sp+"</div><span class='rar'>"+(r||"")+"</span><div class='act'><button data-skin='"+i+"'>当角色</button><a target='_blank' rel='noopener' href='https://x.com/intent/tweet?text="+encodeURIComponent(t)+"'>晒到 X</a><a target='_blank' rel='noopener' href='"+EL+ids[i]+"'>Element</a></div></figure>"}).join("")+"</div>";
-box.querySelectorAll("[data-skin]").forEach(b=>b.onclick=()=>{const i=+b.dataset.skin;useSkin(ms[i].image,ids[i]);$("cv").scrollIntoView({behavior:"smooth",block:"center"})});
-let saved=null;try{saved=JSON.parse(localStorage.getItem("rpSkin")||"null")}catch(e){}const pick=saved&&ids.includes(saved.id)?ids.indexOf(saved.id):0;useSkin(ms[pick].image,ids[pick])}catch(e){box.innerHTML="<p class='sub'>读取失败，请稍后刷新。</p>"}}
-$("connectBtn").onclick=()=>connect();
-async function mint(btn,data,value,label){const t=btn.textContent;btn.disabled=true;btn.textContent="连接钱包中…";try{if(!await connect())return;btn.textContent="请在钱包确认…";$("status").scrollIntoView({behavior:"smooth",block:"center"});await send(data,value,label)}finally{btn.disabled=false;btn.textContent=t}}
-const pad=n=>BigInt(n).toString(16).padStart(64,"0");
-async function send(data,value,label){try{status("请在钱包中确认 "+label+" …");const h=await eth.request({method:"eth_sendTransaction",params:[{from:account,to:CONTRACT_ADDRESS,data,value:"0x"+value.toString(16)}]});
-status("交易已发送，等待确认… <a href='https://bscscan.com/tx/"+h+"' target='_blank'>查看交易</a>");
-for(let i=0;i<60;i++){await new Promise(r=>setTimeout(r,2000));const r=await rpc("eth_getTransactionReceipt",[h]);if(r){if(r.status==="0x1"){status("🎉 铸造成功！欢迎上车。<a href='https://bscscan.com/tx/"+h+"' target='_blank'>查看交易</a>","ok");refresh();feed();reveal(r);loadMine()}else status("交易失败（可能已领过免费票、超过每钱包 5 只上限或已售罄）。","err");return}}}catch(e){status("已取消或失败："+(e.message||e),"err")}}
-$("bFree").onclick=function(){mint(this,SEL.free,FEE,"免费铸造（0.0002 BNB 铸造费）")};
-$("bRider").onclick=function(){mint(this,SEL.rider+pad(q.r),RIDER*BigInt(q.r),"Rider ×"+q.r)};
-$("bExpress").onclick=function(){mint(this,SEL.express+pad(q.e),EXPRESS*BigInt(q.e),"Express ×"+q.e)};
-$("copyP").onclick=()=>{$("copyP").textContent="已复制 ✓";const t=$("prompt").innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>$("copyP").textContent="已复制 ✓").catch(()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();$("copyP").textContent="已复制 ✓"})};
-refresh();setInterval(refresh,15000);
-const HERO_IMG=new Image();HERO_IMG.src=document.querySelector(".strip img").src;function useSkin(src,id){HERO_IMG.src=src;try{localStorage.setItem("rpSkin",JSON.stringify({src,id}))}catch(e){}const s=$("skinNote");if(s)s.textContent="🎮 小游戏角色已换成你的 #"+id+"（持有者专属）";document.querySelectorAll(".mg figure").forEach(f=>f.classList.toggle("sel",f.dataset.id==id))}
-(()=>{const c=$("cv"),x=c.getContext("2d");x.imageSmoothingEnabled=false;let y=0,vy=0,t=0,sc=0,hi=0,obs=[],run=false,over=false,sp=5;const G=150;
-function reset(){y=0;vy=0;obs=[];sc=0;sp=5;over=false;run=true}
-function jump(){if(!run||over){reset();return}if(y===0)vy=13}
-c.addEventListener("pointerdown",e=>{e.preventDefault();jump()});addEventListener("keydown",e=>{if(e.code==="Space"&&document.activeElement.tagName!=="BUTTON"){e.preventDefault();jump()}});
-function draw(){x.fillStyle="#BFE8FF";x.fillRect(0,0,720,220);x.fillStyle="#E9F7FF";x.fillRect(0,G+40,720,40);
-for(let i=0;i<8;i++){x.fillStyle="#9FC9E8";const bx=((i*110-t)%880+880)%880-80;x.fillRect(bx,70+(i%3)*12,60,G-30-(i%3)*12)}
-x.fillStyle="#6B5B73";x.fillRect(0,G+44,720,4);x.fillRect(0,G+60,720,4);x.fillStyle="#8A6F5A";for(let i=0;i<40;i++){x.fillRect(((i*24-t*sp)%720+720)%720,G+44,10,20)}
-for(const o of obs){x.fillStyle=o.c;x.fillRect(o.x,G+44-o.h,o.w,o.h);x.fillStyle="#FFF1A8";x.fillRect(o.x+8,G+50-o.h,o.w-16,10);x.fillStyle="#2B2238";x.fillRect(o.x+6,G+40,10,6);x.fillRect(o.x+o.w-16,G+40,10,6)}
-if(HERO_IMG.complete)x.drawImage(HERO_IMG,60,G-20-y,64,64);
-x.fillStyle="#2B2238";x.font="bold 22px sans-serif";x.textAlign="center";if(!run)x.fillText("点一下开始 ▶",360,100);if(over)x.fillText("撞车啦！点一下再来 ↻",360,100)}
-function step(){if(run&&!over){t++;vy-=0.8;y=Math.max(0,y+vy);if(y===0&&vy<0)vy=0;
-if(!obs.length||obs[obs.length-1].x<720-(260+Math.random()*220)){obs.push({x:740,w:50+Math.random()*50,h:30+Math.random()*24,c:["#D92D63","#1A7BC2","#E8B923","#118565"][Math.floor(Math.random()*4)]})}
-for(const o of obs)o.x-=sp;obs=obs.filter(o=>o.x>-120);sc++;sp=5+sc/600;
-for(const o of obs){if(o.x<112&&o.x+o.w>72&&y<o.h-6){over=true;hi=Math.max(hi,Math.floor(sc/10))}}
-$("sc").textContent=Math.floor(sc/10);$("hi").textContent=hi}draw();requestAnimationFrame(step)}step();
-$("shareBtn").onclick=()=>{const s=Math.max(hi,Math.floor(sc/10));const text="我在「轨道萌宝 RailPals」小游戏跑了 "+s+" 分！🚃 3,300 只全链上像素萌宝，BNB 链免费铸造（0.0002 BNB 铸造费）"+(location.protocol.startsWith("http")?" "+location.href.split("#")[0]:"");$("shareBtn").href="https://x.com/intent/tweet?text="+encodeURIComponent(text)}})();
-$("revClose").onclick=()=>$("reveal").style.display="none";
-async function callC(d){return rpc("eth_call",[{to:CONTRACT_ADDRESS,data:d},"latest"])}
-function decodeStr(hex){const h=hex.slice(2);const len=parseInt(h.slice(64,128),16);const b=new Uint8Array(h.slice(128,128+len*2).match(/../g).map(v=>parseInt(v,16)));return new TextDecoder().decode(b)}
-async function meta(id){const s=decodeStr(await callC("0xc87b56dd"+pad(id)));return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(s.split(",")[1]),c=>c.charCodeAt(0))))}
-let lastFeed=-1;async function feed(){if(!live)return;try{const n=parseInt(await callC(SEL.supply),16);if(n===lastFeed)return;lastFeed=n;if(!n){$("feedNote").textContent="还没有人上车，快来当第一位乘客！";return}
-const ids=[];for(let i=n;i>0&&ids.length<8;i--)ids.push(i);const ms=await Promise.all(ids.map(meta));$("feedNote").textContent="最新铸造的萌宝（链上实时读取）";
-$("feedGrid").innerHTML=ms.map((m,i)=>"<figure><img src='"+m.image+"'><div>#"+ids[i]+"</div></figure>").join("")}catch(e){}}
-async function reveal(rcpt){try{const T="0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";const ids=rcpt.logs.filter(l=>l.topics[0]===T&&l.address.toLowerCase()===CONTRACT_ADDRESS.toLowerCase()).map(l=>parseInt(l.topics[3],16));
-if(!ids.length)return;const ms=await Promise.all(ids.map(meta));$("revImgs").innerHTML=ms.map(m=>"<img src='"+m.image+"'>").join("");
-$("revTxt").textContent=ms.map((m,i)=>{const r=m.attributes.find(a=>a.trait_type==="Rarity").value;return "#"+ids[i]+" "+m.attributes[0].value+(r!=="Common"?" ✨"+r:"")}).join(" ／ ");$("reveal").style.display="flex"}catch(e){}}
-feed();setInterval(feed,20000);
+  // shared scene pieces: a skyline and a synth sun
+  function makeCity(w, hy, h, seed) {
+    const rnd = mulberry(seed), out = [];
+    [0, 1].forEach((layer) => {
+      let x = -10;
+      while (x < w + 10) {
+        const bw = (layer ? 0.035 : 0.025) * w + rnd() * (layer ? 0.06 : 0.04) * w;
+        const bh = (layer ? 0.06 : 0.12) * h + rnd() * (layer ? 0.14 : 0.2) * h;
+        const win = [];
+        const cols = Math.max(1, Math.floor(bw / 7)), rows = Math.max(1, Math.floor(bh / 9));
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (rnd() < (layer ? 0.22 : 0.12)) win.push([c, r, rnd() < 0.6 ? 0 : 1]);
+        out.push({ layer, x, w: bw, h: bh, cols, rows, win });
+        x += bw + (layer ? 3 : 1) + rnd() * 5;
+      }
+    });
+    return out;
+  }
+  function drawCity(c, city, hy, P) {
+    city.forEach((b) => {
+      const top = hy - b.h;
+      c.fillStyle = b.layer ? P.city : P.cityFar;
+      c.fillRect(b.x, top, b.w, b.h);
+      c.fillStyle = alpha(b.layer ? P.a : P.b, b.layer ? 0.5 : 0.3);
+      c.fillRect(b.x, top, b.w, 1);
+      const cw = b.w / b.cols, rh = b.h / b.rows;
+      b.win.forEach(([cc, r, k]) => { c.fillStyle = alpha(k ? P.b : P.a, b.layer ? 0.8 : 0.4); c.fillRect(b.x + cc * cw + cw * 0.3, top + r * rh + rh * 0.35, Math.max(1, cw * 0.4), Math.max(1, rh * 0.3)); });
+    });
+  }
+  function drawSky(c, w, hy, P, sunR) {
+    const g = c.createLinearGradient(0, 0, 0, hy);
+    g.addColorStop(0, P.bg); g.addColorStop(1, P.sky);
+    c.fillStyle = g; c.fillRect(0, 0, w, hy + 1);
+    if (sunR > 0) {
+      const sx = w / 2, sy = hy - sunR * 0.35;
+      const sg = c.createLinearGradient(0, sy - sunR, 0, sy + sunR);
+      sg.addColorStop(0, P.b); sg.addColorStop(1, P.a);
+      c.save(); c.beginPath(); c.arc(sx, sy, sunR, 0, Math.PI * 2); c.clip();
+      c.fillStyle = sg; c.globalAlpha = 0.85; c.fillRect(sx - sunR, sy - sunR, sunR * 2, sunR * 2);
+      c.globalAlpha = 1; c.fillStyle = P.sky;
+      for (let i = 0; i < 6; i++) { const yy = sy + sunR * (0.05 + i * 0.16); c.fillRect(sx - sunR, yy, sunR * 2, 1 + i * 1.2); }
+      c.restore();
+    }
+  }
+  const HEROP = { bg: BG, sky: '#1A0A2E', city: '#0F1230', cityFar: '#0B0D22', a: CY, b: MG };
 
-</script><script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')})}</script></body></html>
+  // ---------- hero: neon rails scrolling into a cyber-city skyline ----------
+  const cv = $('field'), cx = cv.getContext('2d');
+  let W = 0, H = 0, city = [], off = 0, last = 0;
+  function sizeField() {
+    const r = cv.getBoundingClientRect();
+    W = r.width || window.innerWidth; H = r.height || window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    city = makeCity(W, H * 0.46, H, 4444);
+  }
+  function rails(c, w, h, hy, lw, offset, P, opt) {
+    const K = 0.16, base = h, vx = w / 2;
+    const S = (z) => 1 / (1 + z * K);
+    c.fillStyle = P.bg; c.fillRect(0, hy, w, h - hy);
+    // faint floor grid
+    c.strokeStyle = alpha(P.b, 0.16); c.lineWidth = 1;
+    for (let i = -8; i <= 8; i++) { c.beginPath(); c.moveTo(vx + i * lw * 0.9, base); c.lineTo(vx, hy); c.stroke(); }
+    // ties
+    const step = 1.6;
+    for (let i = 0; i < 70; i++) {
+      const z = i * step - (offset % step);
+      if (z < 0) continue;
+      const s = S(z), y = hy + (base - hy) * s;
+      if (y - hy < 1) break;
+      c.strokeStyle = alpha(P.b, Math.min(0.9, 0.15 + s));
+      c.lineWidth = Math.max(1, 3 * s);
+      for (let L = -1; L <= 1; L++) { const x = vx + L * lw * s; c.beginPath(); c.moveTo(x - lw * 0.38 * s, y); c.lineTo(x + lw * 0.38 * s, y); c.stroke(); }
+    }
+    // rails
+    c.save(); c.shadowColor = P.a; c.shadowBlur = opt && opt.glow === false ? 0 : 10;
+    c.strokeStyle = P.a; c.lineWidth = 2;
+    for (let L = -1; L <= 1; L++) [-0.28, 0.28].forEach((d) => { c.beginPath(); c.moveTo(vx + (L + d) * lw, base); c.lineTo(vx, hy); c.stroke(); });
+    c.restore();
+    // horizon line
+    c.fillStyle = alpha(P.b, 0.8); c.fillRect(0, hy, w, 1);
+    return S;
+  }
+  function frame(t) {
+    const dt = Math.min(80, t - (last || t)); last = t;
+    if (!still) off += dt * 0.012;
+    const c = cx; c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const hy = H * 0.46;
+    drawSky(c, W, hy, HEROP, Math.min(W, H) * 0.2);
+    drawCity(c, city, hy, HEROP);
+    const lw = Math.min(W * 0.2, 260);
+    const S = rails(c, W, H, hy, lw, off, HEROP);
+    // light pulses running along the lanes
+    for (let L = -1; L <= 1; L++) {
+      const z = 40 - ((off * (1 + (L + 1) * 0.3) + L * 13 + 40) % 44);
+      if (z < 0) continue;
+      const s = S(z), y = hy + (H - hy) * s, x = W / 2 + L * lw * s;
+      const g = c.createRadialGradient(x, y, 0, x, y, 40 * s + 4);
+      g.addColorStop(0, alpha(L ? MG : CY, 0.9)); g.addColorStop(1, alpha(L ? MG : CY, 0));
+      c.fillStyle = g; c.fillRect(x - 50 * s - 6, y - 50 * s - 6, 100 * s + 12, 100 * s + 12);
+    }
+  }
+  sizeField(); frame(0);
+  let raf = 0, prev = 0;
+  function loop(t) { raf = requestAnimationFrame(loop); if (t - prev < 33) return; prev = t; frame(t); }
+  if (!still) raf = requestAnimationFrame(loop);
+  document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); last = 0; if (!document.hidden && !still) raf = requestAnimationFrame(loop); });
+
+  // ---------- Article I: a playable three-lane runner ----------
+  const rc = $('runCanvas'), rx = rc.getContext('2d'), toyEl = $('runToy');
+  const ZP = 0.8, KZ = 0.13, ZMAX = 62;
+  let RW = 0, RH = 0, state = 'ready', autopilot = false, runRaf = 0, runLast = 0, nextSpawn = 0, rnd = Math.random, inView = false;
+  let p, objs, speed, dist, coins, ties, runCity = [];
+  function reset() {
+    p = { lane: 0, x: 0, y: 0, vy: 0, slide: 0 };
+    objs = []; speed = 14; dist = 0; coins = 0; ties = 0; nextSpawn = 24;
+    cancelAnimationFrame(runRaf); runRaf = 0; runLast = 0;
+    state = 'ready'; writeRun();
+  }
+  function sizeRun() {
+    RW = rc.clientWidth || 600; RH = RW / 1.6;
+    rc.width = RW * dpr; rc.height = RH * dpr;
+    runCity = makeCity(RW, RH * 0.34, RH, 909);
+  }
+  function writeRun() {
+    $('runDist').textContent = Math.floor(dist).toLocaleString('en-US') + ' m';
+    $('runCoins').textContent = coins;
+  }
+  function status(t) { $('runStatus').textContent = t; }
+  function spawnRow(z) {
+    const r = rnd(), lanes = [-1, 0, 1];
+    let free = [];
+    if (r < 0.34) { const L = lanes[Math.floor(rnd() * 3)]; objs.push({ lane: L, z, type: 'block' }); free = lanes.filter((l) => l !== L); }
+    else if (r < 0.56) { const keep = lanes[Math.floor(rnd() * 3)]; lanes.forEach((l) => { if (l !== keep) objs.push({ lane: l, z, type: 'block' }); }); free = [keep]; }
+    else if (r < 0.72) { lanes.forEach((l) => objs.push({ lane: l, z, type: 'low' })); free = lanes; }
+    else if (r < 0.86) { lanes.forEach((l) => objs.push({ lane: l, z, type: 'high' })); free = lanes; }
+    else { const L = lanes[Math.floor(rnd() * 3)]; objs.push({ lane: L, z, type: rnd() < 0.5 ? 'low' : 'high' }); free = lanes; }
+    const cl = free[Math.floor(rnd() * free.length)];
+    if (rnd() < 0.7) for (let i = 0; i < 5; i++) objs.push({ lane: cl, z: z + 3 + i * 1.6, type: 'coin' });
+  }
+  const act = {
+    left() { p.lane = Math.max(-1, p.lane - 1); },
+    right() { p.lane = Math.min(1, p.lane + 1); },
+    jump() { if (p.y <= 0.001 && p.vy === 0) { p.vy = 9; p.slide = 0; } },
+    slide() { p.slide = 0.7; if (p.y > 0) p.vy = -14; },
+  };
+  function control(a, human) {
+    if (state === 'over') return;
+    if (human && autopilot) setAuto(false);
+    if (state === 'ready') start();
+    act[a]();
+  }
+  function setAuto(on) { autopilot = on; const b = $('runRand'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }
+  function start() {
+    state = 'run'; status(autopilot ? 'Random run: the runner picks its own moves. Press any move to take over.' : 'Running. Stay on the rails.');
+    if (!runRaf) runRaf = requestAnimationFrame(runTick);
+  }
+  function crash() {
+    state = 'over'; status('Crashed at ' + Math.floor(dist).toLocaleString('en-US') + ' m with ' + coins + ' coins. Press Restart to run again.');
+  }
+  function blockedAt(l, z0, z1) { return objs.some((o) => o.type === 'block' && o.lane === l && o.z > z0 && o.z < z1); }
+  function pilot() {
+    const L = p.lane, look = speed * 0.55;
+    const hit = objs.filter((o) => o.type !== 'coin' && !o.done && o.lane === L && o.z > ZP - 0.2 && o.z < ZP + look).sort((a, b) => a.z - b.z)[0];
+    if (hit) {
+      const d = hit.z - ZP;
+      if (hit.type === 'block') {
+        const opts = [L - 1, L + 1].filter((l) => l >= -1 && l <= 1 && !blockedAt(l, ZP - 2.2, ZP + look));
+        if (opts.length) p.lane = opts[Math.floor(rnd() * opts.length)];
+      } else if (hit.type === 'low' && d < speed * 0.22) act.jump();
+      else if (hit.type === 'high' && d < speed * 0.18) act.slide();
+    } else if (rnd() < 0.012) {
+      const l = L + (rnd() < 0.5 ? -1 : 1);
+      if (l >= -1 && l <= 1 && !blockedAt(l, ZP - 2.2, ZP + look) && !objs.some((o) => o.lane === l && o.type !== 'coin' && o.z > ZP - 1 && o.z < ZP + look)) p.lane = l;
+    }
+  }
+  function runTick(t) {
+    runRaf = 0;
+    const dt = Math.min(0.05, (t - (runLast || t)) / 1000); runLast = t;
+    if (state === 'run') {
+      if (autopilot) pilot();
+      speed = Math.min(34, speed + dt * 0.35);
+      const mv = speed * dt;
+      dist += mv; ties += mv;
+      p.x += (p.lane - p.x) * Math.min(1, dt * 16);
+      if (p.vy !== 0 || p.y > 0) { p.vy -= 26 * dt; p.y += p.vy * dt; if (p.y <= 0) { p.y = 0; p.vy = 0; } }
+      if (p.slide > 0) p.slide = Math.max(0, p.slide - dt);
+      nextSpawn -= mv;
+      if (nextSpawn <= 0) { spawnRow(ZMAX); nextSpawn = 10 + rnd() * 8 + speed * 0.12; }
+      const PL = Math.round(p.x);
+      for (const o of objs) {
+        o.z -= mv;
+        if (o.lane !== PL) { if (o.z <= ZP) o.done = true; continue; }
+        if (o.type === 'block') { if (o.z <= ZP + 0.4 && o.z > ZP - 1.8) { crash(); break; } }
+        else if (!o.done && o.z <= ZP) {
+          o.done = true;
+          if (o.type === 'coin') { if (p.y < 1.1) { coins++; o.got = true; } }
+          else if (o.type === 'low' && p.y < 0.45) { crash(); break; }
+          else if (o.type === 'high' && (p.slide <= 0 || p.y > 0.2)) { crash(); break; }
+        }
+      }
+      objs = objs.filter((o) => o.z > -3 && !o.got);
+      writeRun();
+    }
+    drawRun();
+    if (state === 'run' && !document.hidden) runRaf = requestAnimationFrame(runTick);
+  }
+  function drawRun() {
+    const c = rx, w = RW, h = RH, hy = h * 0.34, base = h * 1.02, lw = w * 0.2;
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawSky(c, w, hy, HEROP, h * 0.16);
+    drawCity(c, runCity, hy, HEROP);
+    rails(c, w, base, hy, lw, ties, HEROP, { glow: false });
+    const S = (z) => 1 / (1 + Math.max(-0.9, z) * KZ);
+    const at = (lane, z) => { const s = S(z); return { s, x: w / 2 + lane * lw * s, y: hy + (base - hy) * s }; };
+    const U = h * 0.17;
+    const list = objs.slice().sort((a, b) => b.z - a.z);
+    let drewP = false;
+    const drawPlayer = () => {
+      const q = at(p.x, ZP), u = U * q.s, sl = p.slide > 0 && p.y < 0.2;
+      const bh = (sl ? 0.42 : 0.95) * u, bw = 0.42 * u, y0 = q.y - p.y * u;
+      c.fillStyle = 'rgba(0,0,0,.45)'; c.beginPath(); c.ellipse(q.x, q.y, bw * 0.7, u * 0.06, 0, 0, Math.PI * 2); c.fill();
+      c.save(); c.shadowColor = CY; c.shadowBlur = 14;
+      c.fillStyle = CY; c.beginPath();
+      if (c.roundRect) c.roundRect(q.x - bw / 2, y0 - bh, bw, bh, bw * 0.4); else c.rect(q.x - bw / 2, y0 - bh, bw, bh);
+      c.fill(); c.restore();
+      c.fillStyle = MG; c.fillRect(q.x - bw * 0.34, y0 - bh + bh * 0.16, bw * 0.68, Math.max(2, bh * 0.12));
+      c.fillStyle = alpha(MG, 0.35); c.fillRect(q.x - bw * 0.3, y0, bw * 0.6, u * 0.25);
+    };
+    list.forEach((o) => {
+      if (!drewP && o.z < ZP) { drawPlayer(); drewP = true; }
+      if (o.z > ZMAX - 1 || o.z < -0.85) return;
+      const q = at(o.lane, o.z), u = U * q.s, ow = lw * 0.78 * q.s;
+      const fade = Math.min(1, (ZMAX - o.z) / 12);
+      c.globalAlpha = fade;
+      if (o.type === 'coin') {
+        const r = u * 0.12, cy = q.y - u * 0.45;
+        c.strokeStyle = CY; c.lineWidth = Math.max(1.2, r * 0.35); c.beginPath(); c.arc(q.x, cy, r, 0, Math.PI * 2); c.stroke();
+        c.fillStyle = alpha(CY, 0.25); c.fill();
+      } else if (o.type === 'low') {
+        c.fillStyle = alpha(MG, 0.25); c.fillRect(q.x - ow / 2, q.y - u * 0.32, ow, u * 0.32);
+        c.strokeStyle = MG; c.lineWidth = Math.max(1, 2 * q.s); c.strokeRect(q.x - ow / 2, q.y - u * 0.32, ow, u * 0.32);
+      } else if (o.type === 'high') {
+        c.strokeStyle = MG; c.lineWidth = Math.max(1, 2.5 * q.s);
+        c.beginPath(); c.moveTo(q.x - ow / 2, q.y); c.lineTo(q.x - ow / 2, q.y - u * 1.2); c.moveTo(q.x + ow / 2, q.y); c.lineTo(q.x + ow / 2, q.y - u * 1.2); c.stroke();
+        c.fillStyle = alpha(MG, 0.5); c.fillRect(q.x - ow / 2, q.y - u * 1.2, ow, u * 0.5);
+        c.strokeRect(q.x - ow / 2, q.y - u * 1.2, ow, u * 0.5);
+      } else {
+        const bh = u * 1.5;
+        c.fillStyle = '#141633'; c.fillRect(q.x - ow / 2, q.y - bh, ow, bh);
+        c.strokeStyle = MG; c.lineWidth = Math.max(1, 2 * q.s); c.strokeRect(q.x - ow / 2, q.y - bh, ow, bh);
+        c.fillStyle = alpha(CY, 0.7);
+        c.fillRect(q.x - ow * 0.36, q.y - bh * 0.82, ow * 0.72, bh * 0.16);
+        c.fillStyle = MG; c.fillRect(q.x - ow * 0.36, q.y - bh * 0.14, ow * 0.14, bh * 0.06); c.fillRect(q.x + ow * 0.22, q.y - bh * 0.14, ow * 0.14, bh * 0.06);
+      }
+      c.globalAlpha = 1;
+    });
+    if (!drewP) drawPlayer();
+    if (state !== 'run') {
+      c.fillStyle = 'rgba(7,8,15,.55)'; c.fillRect(0, 0, w, h);
+      c.fillStyle = state === 'over' ? MG : CY; c.textAlign = 'center';
+      c.font = '500 ' + Math.max(14, Math.round(w * 0.04)) + 'px "Space Grotesk", sans-serif';
+      c.fillText(state === 'over' ? 'Crashed at ' + Math.floor(dist).toLocaleString('en-US') + ' m' : 'Swipe, tap a move or press an arrow', w / 2, h * 0.5);
+      c.fillStyle = '#C9D3EE'; c.font = '400 ' + Math.max(12, Math.round(w * 0.022)) + 'px "JetBrains Mono", monospace';
+      c.fillText(state === 'over' ? 'Press Restart to run again' : '← → change lane  ·  ↑ jump  ·  ↓ slide', w / 2, h * 0.5 + Math.max(22, w * 0.05));
+    }
+  }
+  document.querySelectorAll('#runMoves [data-a]').forEach((b) => b.addEventListener('click', () => control(b.dataset.a, true)));
+  $('runRestart').addEventListener('click', () => { setAuto(false); reset(); start(); });
+  $('runRand').addEventListener('click', () => { rnd = mulberry(Math.floor(Math.random() * 1e9)); reset(); setAuto(true); start(); });
+  const KEYS = { ArrowLeft: 'left', a: 'left', A: 'left', ArrowRight: 'right', d: 'right', D: 'right', ArrowUp: 'jump', w: 'jump', W: 'jump', ' ': 'jump', ArrowDown: 'slide', s: 'slide', S: 'slide' };
+  document.addEventListener('keydown', (e) => {
+    const a = KEYS[e.key]; if (!a || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const focused = toyEl.contains(document.activeElement);
+    if (!(focused || (inView && state === 'run'))) return;
+    if (tag === 'BUTTON' && e.key === ' ') return;
+    e.preventDefault(); control(a, true);
+  });
+  let sx = 0, sy = 0, sid = null;
+  rc.addEventListener('pointerdown', (e) => { sid = e.pointerId; sx = e.clientX; sy = e.clientY; rc.focus({ preventScroll: true }); });
+  rc.addEventListener('pointerup', (e) => {
+    if (e.pointerId !== sid) return; sid = null;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) { control('jump', true); return; }
+    control(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'slide' : 'jump'), true);
+  });
+  rc.addEventListener('pointercancel', () => { sid = null; });
+  if ('IntersectionObserver' in window) new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; })).observe(toyEl);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && state === 'run' && !runRaf) { runLast = 0; runRaf = requestAnimationFrame(runTick); } });
+  sizeRun(); reset(); drawRun();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (state !== 'run') drawRun(); });
+
+  // ---------- Article II: tracks + palettes ----------
+  const PALETTES = [
+    // paper bg, text/hairline ink t, route colours c, accent dot acc
+    { name: 'Neon', bg: '#F2EEE5', c: ['#00A9D6', '#E6007E', '#1B2A6B', '#7A3FD0'] },
+    { name: 'Synthwave', bg: '#F2EEE5', c: ['#FF4FA3', '#FF9F1C', '#5B2A86', '#2EC4B6'] },
+    { name: 'Midnight', bg: '#111111', t: '#F2EEE5', c: ['#F2EEE5', '#E63027', '#F2C230', '#3D8BFF', '#2EC4B6'] },
+    { name: 'Ember', bg: '#F2EEE5', c: ['#D7261E', '#F07A1A', '#2B2B2B', '#F2B134'], acc: '#1A1A1A' },
+    { name: 'Ice', bg: '#EEF1F2', c: ['#5AA9FF', '#1B3A5C', '#7CC6E6'] },
+    { name: 'Vapor', bg: '#F3E6E6', c: ['#2EC4B6', '#FF71CE', '#7B5CFF', '#1B2A6B', '#F2C230'] },
+    { name: 'Gold Rush', bg: '#F2EEE5', c: ['#C8962E', '#1A1A1A', '#8C5A1E'] },
+    { name: 'Blush', bg: '#F3E6E6', c: ['#C2185B', '#3B2A4A', '#E58FA8', '#7A1F3D'] },
+    { name: 'Sage', bg: '#E6E8DC', c: ['#2F5D3A', '#8DA34A', '#1F3A4D', '#C9A227'] },
+    { name: 'Cobalt', bg: '#2E3FD0', t: '#F2EEE5', c: ['#F2C230', '#FFFFFF', '#A9B8FF'], acc: '#FF5A3C' },
+    { name: 'Phosphor', bg: '#0B0B0B', t: '#CFF5DA', c: ['#39FF6B', '#1C9E3D', '#B6FFC9'], acc: '#FF3B30' },
+    { name: 'Chrome', bg: '#E4E4E2', c: ['#1A1A1A', '#6E6E6E', '#A6A6A6', '#3C3C3C'] },
+  ];
+  const TRACKS = [
+    ['LOOP', 'loop', 'Ring routes around Central, crossed by straight spokes.'],
+    ['GRID', 'grid', 'A dense street-grid network. Every turn is 45 or 90 degrees.'],
+    ['JUNCTION', 'junction', 'Lines run bundled, then fan out from one big interchange.'],
+    ['STRATA', 'strata', 'Stacked route bands with station ticks, like a departure board.'],
+  ];
+  // seed -> metro map in unit space: L lines, S stations, X interchanges ([x,y] or capsule [x1,y1,x2,y2]), K ticks
+  function mapOf(s) {
+    const r = mulberry(s.seed * 7 + 3), f = TRACKS[s.form][1], P = PALETTES[s.pal];
+    const R = (a, b) => a + r() * (b - a), I = (a, b) => Math.floor(R(a, b + 1));
+    const n = I(3, 9), M = { L: [], S: [], X: [], K: [], ctr: [0.5, 0.5], lw: 0.028, n, route: 1 + Math.floor(mulberry(s.seed + 9)() * 255) };
+    const col = (i) => P.c[(i + s.seed) % P.c.length], sh = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = I(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const pol = (q, a) => [0.5 + q * Math.cos(a), 0.5 + q * Math.sin(a)];
+    if (f === 'loop') {
+      const nr = Math.max(2, Math.ceil(n / 2)), ang = sh([0, 1, 2, 3, 4, 5, 6, 7]).slice(0, n - nr).map((k) => k * Math.PI / 4);
+      const rad = Array.from({ length: nr }, (_, i) => 0.1 + 0.34 * (i + 1) / nr);
+      M.halo = 0.5; M.lw = n > 6 ? 0.022 : 0.03;
+      rad.forEach((q, i) => { M.L.push({ c: col(i), ring: q }); for (let j = I(1, 3); j > 0; j--) M.S.push(pol(q, (I(0, 7) + 0.5) * Math.PI / 4)); });
+      ang.forEach((a, j) => { M.L.push({ c: col(nr + j), p: [[0.5, 0.5], pol(0.48, a)], t0: 1 }); rad.forEach((q) => M.X.push(pol(q, a))); });
+      M.X.push([0.5, 0.5]);
+    } else if (f === 'grid') {
+      const g = 10, hit = {}, rows = [sh([1, 2, 3, 4, 5, 6, 7, 8, 9]), sh([1, 2, 3, 4, 5, 6, 7, 8, 9])]; M.street = g; M.lw = 0.02;
+      for (let i = 0; i < n; i++) {
+        const v = i % 2, map = (q) => (v ? [q[1] / g, q[0] / g] : [q[0] / g, q[1] / g]);
+        let a = 0, b = rows[v][i >> 1]; const lat = [[a, b]], vx = [[a, b]];
+        while (a < g) {
+          if (r() < 0.35) { b += b <= 1 ? 1 : b >= g - 1 ? -1 : r() < 0.5 ? -1 : 1; a++; lat.push([a, b]); }
+          else for (let k = Math.min(I(1, 3), g - a); k > 0; k--) { a++; lat.push([a, b]); }
+          vx.push([a, b]);
+        }
+        M.L.push({ c: col(i), p: vx.map(map) });
+        lat.forEach((q, k) => { const p = map(q), key = p.join(); (hit[key] = hit[key] || new Set()).add(i); if (k && k < lat.length - 1 && r() < 0.14) M.S.push(p); });
+      }
+      let best = 0; M.ctr = M.L[0].p[1];
+      Object.keys(hit).forEach((k) => { const z = hit[k].size; if (z > 1) { const p = k.split(',').map(Number); M.X.push(p); if (z > best) { best = z; M.ctr = p; } } });
+    } else if (f === 'junction') {
+      const d = n > 6 ? 0.03 : 0.036, J = R(0.64, 0.74), x0 = 0.5 - (n - 1) / 2 * d; M.lw = Math.min(0.026, d * 0.6); M.ctr = [0.5, J]; M.egg = r() < 0.6;
+      for (let i = 0; i < n; i++) {
+        const x = x0 + i * d, tx = 0.08 + 0.84 * i / (n - 1), dx = Math.abs(tx - x), yd = J - dx;
+        const ey = Math.min(0.5 - 0.45 * Math.sqrt(Math.max(0, 1 - ((tx - 0.5) / 0.47) ** 2)), yd - 0.05);
+        M.L.push({ c: col(i), p: [[x, 0.96], [x, J], [tx, yd], [tx, ey]], t0: 1 });
+        for (let k = I(1, 3), j = 1; j <= k; j++) M.S.push([tx, yd + (ey - yd) * j / (k + 1)]);
+        if (dx > 0.12 && r() < 0.5) M.S.push([(x + tx) / 2, J - dx / 2]);
+      }
+      M.X.push([x0, J, 1 - x0, J], [x0, 0.88, 1 - x0, 0.88]);
+    } else {
+      const h = 0.92 / n, segs = []; M.lw = Math.min(0.03, h * 0.3);
+      for (let i = 0; i < n; i++) {
+        const y = 0.04 + h * (i + 0.5), a = R(0.3, 0.7), sg = r() < 0.45 ? [[0, a], [a + 0.07, 1]] : [[0, 1]]; segs.push(sg);
+        sg.forEach(([a, b]) => {
+          const p = [[a, y]], o = h * 0.3 * (r() < 0.5 ? -1 : 1), u = Math.abs(o); let j1 = 9, j2 = 9;
+          if (b - a > 0.4 && r() < 0.5) { j1 = a + R(0.04, 0.12); j2 = j1 + u + R(0.05, 0.12); p.push([j1, y], [j1 + u, y + o], [j2, y + o], [j2 + u, y]); }
+          p.push([b, y]); M.L.push({ c: col(i), p });
+          for (let x = a + R(0.04, 0.08); x < b - 0.03; x += R(0.06, 0.12)) if (x < j1 - 0.01 || x > j2 + u + 0.01) (r() < 0.2 ? M.S : M.K).push([x, y]);
+        });
+      }
+      for (let k = I(1, 3), t = 0; k > 0 && t < 20; t++) {
+        const x = R(0.55, 0.92), i = I(0, n - 2), on = (sg) => sg.some(([a, b]) => x > a + 0.03 && x < b - 0.03);
+        if (on(segs[i]) && on(segs[i + 1])) { const y = 0.04 + h * (i + 0.5); M.X.push([x, y, x, y + h]); if (!M.X[1]) M.ctr = [x, y + h / 2]; k--; }
+      }
+      if (!M.X.length) M.ctr = M.K[0] || M.S[0] || M.ctr;
+    }
+    const seen = {}, key = (p) => p[0].toFixed(3) + ',' + p[1].toFixed(3);
+    M.X.forEach((p) => { if (p.length === 2) seen[key(p)] = 1; });
+    M.S = M.S.filter((p) => !seen[key(p)] && (seen[key(p)] = 1));
+    M.stations = M.S.length + M.X.length + M.K.length;
+    return M;
+  }
+  let pal = 0;
+  const fg = $('formGrid'), forms = [];
+  TRACKS.forEach(([name, kind, line], i) => {
+    const el = document.createElement('figure'); el.className = 'form rv';
+    el.innerHTML = '<canvas role="img" aria-label="The ' + name + ' track"></canvas><figcaption><b>' + name + '</b><span>' + line + '</span></figcaption>';
+    fg.appendChild(el);
+    forms.push({ form: i, cv: el.querySelector('canvas'), seed: 300 + i * 71 });
+  });
+  function drawForms() { forms.forEach((f) => paint(f.cv, { form: f.form, pal, seed: f.seed })); }
+  const pals = $('pals');
+  PALETTES.forEach((p, i) => {
+    const el = document.createElement('button'); el.className = 'pal' + (i === 0 ? ' on' : ''); el.setAttribute('aria-pressed', i === 0);
+    el.innerHTML = '<span class="sw">' + [p.bg].concat(p.c.slice(0, 3)).map((c) => '<i style="background:' + c + '"></i>').join('') + '</span>' + p.name;
+    el.addEventListener('click', () => setPal(i));
+    pals.appendChild(el);
+  });
+  function setPal(i) {
+    pal = i; pals.querySelectorAll('.pal[data-p]').forEach((b) => { const on = +b.dataset.p === i; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    drawForms();
+  }
+  pals.querySelectorAll('.pal').forEach((b, i) => { b.dataset.p = i; });
+  const shuf = document.createElement('button'); shuf.className = 'pal x-shuffle'; shuf.textContent = '⟳ Shuffle';
+  shuf.setAttribute('aria-label', 'Pick a random light');
+  shuf.addEventListener('click', () => {
+    let n = pal; while (n === pal) n = Math.floor(Math.random() * PALETTES.length);
+    forms.forEach((f) => { f.seed = Math.floor(Math.random() * 1e6); });
+    setPal(n);
+  });
+  pals.appendChild(shuf);
+  drawForms();
+
+  // ---------- Article IV + V: preview runner cards ----------
+  const prng = mulberry(4444);
+  const SAMPLES = Array.from({ length: 24 }, (_, i) => ({ id: i + 1, form: Math.floor(prng() * TRACKS.length), pal: Math.floor(prng() * PALETTES.length), seed: Math.floor(prng() * 1e6) }));
+  const pad = (n) => '#' + String(n).padStart(4, '0');
+  const cardSets = [];
+  function makeCard(s, market) {
+    const el = document.createElement('article'); el.className = 'x-card';
+    const T = TRACKS[s.form], P = PALETTES[s.pal];
+    el.innerHTML = '<canvas role="img" aria-label="Railix line ' + pad(s.id) + ', ' + T[0] + ' in ' + P.name + '"></canvas>' +
+      '<div class="x-card-meta"><span class="mono x-id">Line ' + pad(s.id) + '</span><b>' + T[0] + '</b><span>' + P.name + '</span></div>' +
+      (market ? '<div class="x-card-act"><button disabled>Buy · soon</button><button disabled>Offer · soon</button></div>' : '');
+    return { s, el, cv: el.querySelector('canvas'), cw: 0, city: null };
+  }
+  function drawCards() {
+    cardSets.forEach((set) => set.forEach((c) => {
+      const w = c.cv.clientWidth; if (!w || c.cw === w) return;
+      c.cw = w; paint(c.cv, c.s);
+    }));
+  }
+  const strip = SAMPLES.map((s) => makeCard(s, false));
+  strip.forEach((c) => $('prevStrip').appendChild(c.el));
+  const mk = SAMPLES.map((s) => makeCard(s, true));
+  cardSets.push(strip, mk);
+  const fForm = $('fForm'), fPal = $('fPal'), fSort = $('fSort'), fSearch = $('fSearch'), grid = $('mkGrid');
+  TRACKS.forEach((t, i) => fForm.add(new Option(t[0], i)));
+  PALETTES.forEach((p, i) => fPal.add(new Option(p.name, i)));
+  const none = document.createElement('p'); none.className = 'x-none mono'; none.textContent = 'No lines match these filters';
+  function filterMarket() {
+    const fo = fForm.value, pa = fPal.value, q = fSearch.value.replace(/\D/g, '');
+    const list = mk.filter((c) => (fo === '' || c.s.form === +fo) && (pa === '' || c.s.pal === +pa) && (!q || String(c.s.id).padStart(4, '0').includes(q) || String(c.s.id) === q.replace(/^0+/, '')));
+    list.sort((a, b) => fSort.value === 'new' ? b.s.id - a.s.id : a.s.id - b.s.id);
+    grid.replaceChildren(...list.map((c) => c.el));
+    if (!list.length) grid.appendChild(none);
+    $('mkCount').textContent = list.length + ' of ' + mk.length + ' preview lines';
+    drawCards();
+  }
+  [fForm, fPal, fSort].forEach((el) => el.addEventListener('change', filterMarket));
+  fSearch.addEventListener('input', filterMarket);
+  filterMarket();
+
+  // shared: paint one line (form, light, seed) as a Nomio-style metro print; .x-ghost gets bare art
+  function paint(cv, s) {
+    const w = cv.clientWidth || 320; cv.width = w * dpr; cv.height = w * dpr;
+    const c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const P = PALETTES[s.pal], M = mapOf(s), t = P.t || '#1A1A1A', ghost = cv.classList.contains('x-ghost'), txt = !ghost && w >= 150;
+    const cols = Array.from({ length: 8 }, (_, i) => P.c[(i + s.seed) % P.c.length]);
+    if (!ghost) { c.fillStyle = P.bg; c.fillRect(0, 0, w, w); c.strokeStyle = alpha(t, 0.35); c.lineWidth = 1; c.strokeRect(0.5, 0.5, w - 1, w - 1); }
+    if (txt) {
+      const fs = Math.max(8, Math.min(13, w * 0.03)), pd = w * 0.045, sw = fs * 0.8, sx = w / 2 - sw * 4.6;
+      c.font = '400 ' + fs + 'px "JetBrains Mono", monospace'; c.fillStyle = t;
+      const tx = (str, x, y, al) => { c.textAlign = al; c.fillText(str, x, y); return c.measureText(str).width; };
+      tx('RAILIX', pd, pd + fs, 'left'); tx('N° ' + String(s.id || s.seed).padStart(4, '0') + ' / 4444', w - pd, pd + fs, 'right');
+      const lw = tx('ROUTE ' + M.route + ' · ' + TRACKS[s.form][0], pd, w - pd, 'left'), rw = tx('STATIONS ' + M.stations, w - pd, w - pd, 'right');
+      c.fillStyle = alpha(t, 0.3); c.fillRect(pd, pd + fs * 1.6, w - 2 * pd, 1);
+      if (pd + lw + 6 < sx && w - pd - rw - 6 > w - sx) cols.forEach((k, i) => { c.fillStyle = k; c.fillRect(sx + i * sw * 1.15, w - pd - sw * 0.85, sw, sw * 0.85); });
+    }
+    const m = txt ? w * 0.18 : w * 0.1, B = w - 2 * m, X = (v) => m + v * B, lw = M.lw * B, dk = '#1A1A1A';
+    c.lineCap = c.lineJoin = 'round';
+    if (M.halo || M.egg) { c.strokeStyle = alpha(t, 0.2); c.lineWidth = 1; c.beginPath(); M.halo ? c.arc(X(0.5), X(0.5), M.halo * B, 0, 7) : c.ellipse(X(0.5), X(0.5), 0.46 * B, 0.49 * B, 0, 0, 7); c.stroke(); }
+    if (M.street) {
+      const g = M.street; c.strokeStyle = alpha(t, 0.14); c.lineWidth = 1; c.setLineDash([B / g * 0.55, B / g * 0.45]); c.beginPath();
+      for (let i = 0; i <= g; i++) { c.moveTo(X(0), X(i / g)); c.lineTo(X(1), X(i / g)); c.moveTo(X(i / g), X(0)); c.lineTo(X(i / g), X(1)); }
+      c.stroke(); c.setLineDash([]);
+    }
+    M.L.forEach((l) => {
+      c.strokeStyle = l.c; c.lineWidth = lw; c.beginPath();
+      if (l.ring) c.arc(X(0.5), X(0.5), l.ring * B, 0, 7); else l.p.forEach((q, i) => (i ? c.lineTo : c.moveTo).call(c, X(q[0]), X(q[1])));
+      c.stroke();
+      if (l.p) [[l.p[1], l.p[0]], [l.p[l.p.length - 2], l.p[l.p.length - 1]]].forEach(([a, e], k) => {
+        if (!k && l.t0) return;
+        const dx = e[0] - a[0], dy = e[1] - a[1], d = Math.hypot(dx, dy) || 1, ox = -dy / d * lw * 1.1, oy = dx / d * lw * 1.1;
+        c.lineWidth = lw * 0.6; c.beginPath(); c.moveTo(X(e[0]) - ox, X(e[1]) - oy); c.lineTo(X(e[0]) + ox, X(e[1]) + oy); c.stroke();
+      });
+    });
+    c.fillStyle = t; M.K.forEach((p) => c.fillRect(X(p[0]) - Math.max(1, lw * 0.14), X(p[1]) - lw * 0.95, Math.max(2, lw * 0.28), lw * 1.9));
+    const ol = Math.max(1, lw * 0.28);
+    M.X.forEach((p) => {
+      const q = p.length > 2 ? p : [p[0], p[1], p[0] + 0.0005, p[1]];
+      [[dk, lw * 1.7 + ol * 2], ['#FFFFFF', lw * 1.7]].forEach(([k, wd]) => { c.strokeStyle = k; c.lineWidth = wd; c.beginPath(); c.moveTo(X(q[0]), X(q[1])); c.lineTo(X(q[2]), X(q[3])); c.stroke(); });
+    });
+    c.fillStyle = '#FFFFFF'; c.strokeStyle = dk; c.lineWidth = ol;
+    M.S.forEach((p) => { c.beginPath(); c.arc(X(p[0]), X(p[1]), lw * 0.62, 0, 7); c.fill(); c.stroke(); });
+    c.fillStyle = P.acc || '#E63027'; c.beginPath(); c.arc(X(M.ctr[0]), X(M.ctr[1]), lw * 0.5, 0, 7); c.fill();
+  }
+  // seed -> line, same mapping as the generator
+  function seedLine(n) { const r = mulberry(n + 1); return { form: Math.floor(r() * TRACKS.length), pal: Math.floor(r() * PALETTES.length), seed: n }; }
+  const traits = (s) => { const M = mapOf(s); return 'Form ' + TRACKS[s.form][0] + ' · Light ' + PALETTES[s.pal].name + ' · Route ' + M.route + ' · Routes ' + M.n + ' · Stations ' + M.stations; };
+
+  // ---------- marquee band: seeds 101-116, drawn once, duplicated for the loop ----------
+  for (let k = 0; k < 32; k++) { const c = document.createElement('canvas'); $('marq').appendChild(c); paint(c, seedLine(101 + (k % 16))); }
+
+  // ---------- your run, drawn: seed = floor(distance) + i, every 3 s while running ----------
+  const run3 = Array.from($('run3').children);
+  const drawRun3 = () => run3.forEach((c, i) => paint(c, seedLine(Math.floor(dist) + i)));
+  setInterval(() => { if (state === 'run' && !document.hidden) drawRun3(); }, 3000);
+
+  // ---------- hero ghost: faint line, new seed every 6 s, crossfaded ----------
+  const ghosts = document.querySelectorAll('.x-ghost'); let gi = 0, gs = 4444;
+  const ghostNext = () => { const c = ghosts[gi]; paint(c, seedLine(gs++)); c.classList.add('on'); ghosts[1 - gi].classList.remove('on'); gi = 1 - gi; };
+  ghostNext();
+  if (!still) setInterval(() => { if (!document.hidden) ghostNext(); }, 6000);
+
+  // ---------- timetable: seed 4444 beside the heading ----------
+  paint($('ttArt'), seedLine(4444));
+
+  // ---------- line generator ----------
+  const gSeed = $('genSeed');
+  function gen(n) {
+    n = Math.max(0, Math.min(999999, Math.floor(+n) || 0)); gSeed.value = n;
+    const s = seedLine(n);
+    paint($('genCanvas'), s);
+    $('genOut').textContent = 'Seed ' + n + ' · ' + traits(s);
+  }
+  gSeed.addEventListener('change', () => gen(gSeed.value));
+  $('genPrev').addEventListener('click', () => gen(+gSeed.value - 1));
+  $('genNext').addEventListener('click', () => gen(+gSeed.value + 1));
+  $('genRand').addEventListener('click', () => gen(Math.random() * 1e6));
+
+  // ---------- depot lightbox ----------
+  const lb = $('lb'); let lbi = 0;
+  function lbShow(i) {
+    lbi = (i + SAMPLES.length) % SAMPLES.length; const s = SAMPLES[lbi];
+    if (!lb.open) lb.showModal ? lb.showModal() : lb.setAttribute('open', '');
+    const label = 'Line ' + pad(s.id) + ' · ' + traits(s).replace(/ · Route \d+/, '');
+    $('lbMeta').textContent = label; $('lbCanvas').setAttribute('aria-label', label);
+    paint($('lbCanvas'), s);
+  }
+  strip.forEach((c, i) => {
+    c.el.tabIndex = 0; c.el.setAttribute('role', 'button');
+    c.el.addEventListener('click', () => lbShow(i));
+    c.el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lbShow(i); } });
+  });
+  $('lbPrev').addEventListener('click', () => lbShow(lbi - 1));
+  $('lbNext').addEventListener('click', () => lbShow(lbi + 1));
+  $('lbClose').addEventListener('click', () => lb.close ? lb.close() : lb.removeAttribute('open'));
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') lbShow(lbi - 1); if (e.key === 'ArrowRight') lbShow(lbi + 1); });
+
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { sizeField(); frame(performance.now()); sizeRun(); drawRun(); drawForms(); drawCards(); gen(gSeed.value); }, 200); });
+
+  // ---------- wallet check ----------
+  function check() {
+    const w = $('who').value.trim(), out = $('whoOut');
+    out.textContent = /^0x[0-9a-fA-F]{40}$/.test(w) ? 'No Railix line on this wallet yet.' : "That doesn't look like a wallet address.";
+  }
+  $('whoBtn').addEventListener('click', check);
+  $('who').addEventListener('keydown', (e) => { if (e.key === 'Enter') check(); });
+
+  // ---------- copy ----------
+  function legacyCopy(text) {
+    const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta); return ok;
+  }
+  document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => {
+    const pre = $(b.dataset.copy), text = pre.innerText;
+    const ok = legacyCopy(text);
+    if (!ok && navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    const sel = window.getSelection(), r = document.createRange(); r.selectNodeContents(pre); sel.removeAllRanges(); sel.addRange(r);
+    b.textContent = 'Copied'; b.classList.add('on');
+    setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('on'); }, 1400);
+  }));
+
+  // ---------- reveal ----------
+  document.querySelectorAll('.sec h2, .body, .toy, .ledger, .steps li, .code, details').forEach((el) => el.classList.add('rv'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+  } else document.querySelectorAll('.rv').forEach((el) => el.classList.add('in'));
+  setTimeout(() => { drawForms(); drawCards(); sizeRun(); drawRun(); gen(gSeed.value); drawRun3(); }, 60);
+})();
+</script>
+</body>
+</html>
