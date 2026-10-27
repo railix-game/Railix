@@ -244,12 +244,14 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
       <div class="l-row"><span class="mono k">Lines laid</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
       <div class="meter"><div id="mFill"></div><span class="tick" style="left:10%"></span></div>
       <div class="l-row"><span class="mono k">Lines left</span><span class="v" id="mLeft">4,444</span></div>
+      <div class="l-row"><span class="mono k">Fare</span><span class="v"><b>0.0004</b> BNB</span></div>
+      <div class="l-row"><span class="mono k">Per wallet</span><span class="v">up to <b>5</b></span></div>
       <div class="l-row"><span class="mono k">Signal</span><span class="v mono" id="mStatus">Awaiting contract</span></div>
     </div>
 
     <ol class="steps">
       <li><span class="mono">01</span><div><b>Get your ticket.</b> Hold an Agent ID, claimed in the Binance Wallet app under your Agentic Wallet. The gate checks it first.</div></li>
-      <li><span class="mono">02</span><div><b>Call mint().</b> One call, no arguments. Read <code>currentPrice()</code> and send exactly that fare.</div></li>
+      <li><span class="mono">02</span><div><b>Call mint().</b> One call, no arguments. The fare is 0.0004 BNB per line. Read <code>currentPrice()</code> and send exactly that.</div></li>
       <li><span class="mono">03</span><div><b>Your line is laid.</b> The block sets the seed; the seed lays the shape, the light and the runner. Nothing is curated after departure.</div></li>
     </ol>
 
@@ -258,14 +260,14 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
       <pre id="prompt">Board and mint one Railix on BNB Chain (chain id 56).
 Contract: <span class="caddr">0xYOUR_CONTRACT_ADDRESS</span>
 Call mint() with calldata 0x1249c58b.
-Value: read currentPrice() on the contract and send exactly that.</pre>
+Value: 0.0004 BNB (400000000000000 wei). Confirm with currentPrice() and send exactly that.</pre>
     </div>
     <div class="code dark">
       <div class="code-top mono"><span>baw CLI</span><button class="chip" data-copy="cli">Copy</button></div>
       <pre id="cli">baw contract-call preview --binanceChainId 56 \
   --from &lt;your agentic wallet&gt; \
   --to <span class="caddr">0xYOUR_CONTRACT_ADDRESS</span> \
-  --value &lt;currentPrice() in wei&gt; --inputData 0x1249c58b --json
+  --value 400000000000000 --inputData 0x1249c58b --json
 
 baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
     </div>
