@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Railix — Turn off mint on the old contract</title>
+<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px;line-height:1.5}button{padding:10px 16px;font-size:16px;cursor:pointer}code{word-break:break-all}#out{white-space:pre-wrap;background:#f4f4f4;padding:12px}</style></head>
+<body>
+<h1>Railix — Turn off mint on the old contract</h1>
+<p>This page calls <code>setMintOpen(false)</code> on the <b>old</b> Railix contract <code>0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852</code> on BNB Chain. Only the contract owner can succeed — anyone else will see the transaction revert.</p>
+<p>Calldata: <code>0xf8004d310000000000000000000000000000000000000000000000000000000000000000</code> (setMintOpen(false)). No BNB value is sent, only network gas.</p>
+<p>After this, minting on the old contract stops on-chain, and focus moves to the new Railix v2 contract. The site itself already shows mint as paused, but this transaction is what actually stops minting on-chain.</p>
+<button id="connect">1. Connect owner wallet</button>
+<button id="close" disabled>2. Turn off mint (setMintOpen false)</button>
+<div id="out">Not connected.</div>
+<script>
+const CONTRACT = '0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852';
+const DATA = '0xf8004d310000000000000000000000000000000000000000000000000000000000000000';
+const out = document.getElementById('out');
+function log(s){ out.textContent = s; }
+function provider(){ if (window.okxwallet) return window.okxwallet; if (window.ethereum) return window.ethereum; return null; }
+let account = null;
+document.getElementById('connect').onclick = async () => {
+  const p = provider(); if (!p) { log('No wallet found. Open this page in a dApp browser (OKX / MetaMask / Binance / Trust).'); return; }
+  try {
+    const accs = await p.request({ method: 'eth_requestAccounts' });
+    account = accs[0];
+    try { await p.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x38' }] }); }
+    catch (e) { if (e.code === 4902) { await p.request({ method: 'wallet_addEthereumChain', params: [{ chainId: '0x38', chainName: 'BNB Smart Chain', nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }, rpcUrls: ['https://bsc-dataseed.binance.org'], blockExplorerUrls: ['https://bscscan.com'] }] }); } else throw e; }
+    document.getElementById('close').disabled = false;
+    log('Connected: ' + account + ' on BNB Chain. Owner wallet only will succeed.');
+  } catch (e) { log('Connect failed: ' + (e.message || e)); }
+};
+document.getElementById('close').onclick = async () => {
+  const p = provider(); if (!account) { log('Connect first.'); return; }
+  try {
+    const txHash = await p.request({ method: 'eth_sendTransaction', params: [{ from: account, to: CONTRACT, data: DATA, value: '0x0' }] });
+    log('Transaction sent: ' + txHash + '\nWait for confirmation, then check mintOpen() on BscScan: https://bscscan.com/tx/' + txHash);
+  } catch (e) { log('Failed: ' + (e.message || e)); }
+};
+</script>
+</body></html>

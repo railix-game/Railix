@@ -199,7 +199,7 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
       <p class="kicker mono">rail·ix &nbsp;/ rail + ix / &nbsp;n. a line of light laid by a seed; the track a runner never leaves</p>
       <h1 class="display">Small runs.<br><em>Endless rails.</em></h1>
       <p class="lede">4,444 rail lines on BNB Chain. Every Railix is one track, one light, and one runner, laid down from a seed fixed the moment you mint it — from any personal wallet, or through an AI agent's wallet.</p>
-      <div class="cta"><a class="btn ink" href="#mint">Mint a line</a><a class="btn line" href="#run">Ride the track</a></div>
+      <div class="cta"><a class="btn ink" href="#mint">Mint paused</a><a class="btn line" href="#run">Ride the track</a></div>
     </div>
     <div class="hero-foot mono"><span>Series I</span><span>BNB Chain</span><span>Any personal wallet</span></div>
   </section>
@@ -237,8 +237,8 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
 
   <section class="sec mint" id="mint">
     <div class="art-no mono">Line 03 · Boarding</div>
-    <h2 class="display">Any wallet can board.</h2>
-    <p class="body">Any personal wallet on BNB Chain can mint — straight from this page, or through an AI agent's wallet. Calls from smart contracts are turned away on-chain. Up to five lines per wallet.</p>
+    <h2 class="display">Mint is paused.</h2>
+    <p class="body">Minting on this contract is paused while we focus on the new Railix contract. Please do not mint here until the new contract address is announced. The new contract is Railix v2: FREE mint, creator fee 0.00015 BNB for the first 200 mints, then 0.00025 BNB, max 5 lines per wallet, any personal wallet, calls from smart contracts turned away on-chain.</p>
 
     <div class="ledger">
       <div class="l-row"><span class="mono k">Lines laid</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
@@ -255,19 +255,15 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
 
     <div class="code">
       <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
-      <pre id="prompt">Mint one Railix on BNB Chain (chain id 56). Any personal wallet can mint — straight from this page, or through an AI agent's wallet.
-Contract: <span class="caddr">0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852</span>
-Call mint() with calldata 0x1249c58b.
-Value: read currentPrice() on the contract and send exactly that.</pre>
+      <pre id="prompt">Mint is PAUSED on the old Railix contract.
+Contract: 0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852
+
+Do not mint on this contract. Focus is on the new Railix contract (Railix v2): FREE mint, creator fee 0.00015 BNB for the first 200 mints, then 0.00025 BNB, max 5 per wallet. Its address will be announced here after deployment.</pre>
     </div>
     <div class="code dark">
       <div class="code-top mono"><span>baw CLI</span><button class="chip" data-copy="cli">Copy</button></div>
-      <pre id="cli">baw contract-call preview --binanceChainId 56 \
-  --from &lt;your wallet&gt; \
-  --to <span class="caddr">0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852</span> \
-  --value &lt;currentPrice() in wei&gt; --inputData 0x1249c58b --json
-
-baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
+      <pre id="cli"># Mint is PAUSED on the old Railix contract.
+# Do not run this until the new Railix contract address is announced.</pre>
     </div>
     <div class="check">
       <label class="mono" for="who">Check a ticket</label>
@@ -311,7 +307,7 @@ baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
   <section class="sec" id="notes">
     <canvas class="x-tt" id="ttArt" role="img" aria-label="Railix line from seed 4444"></canvas>
     <div class="art-no mono">Timetable</div>
-    <details><summary>Who can mint?</summary><p>Any personal wallet on BNB Chain — a person in a dApp browser, or an AI agent acting through its own wallet. The contract rejects calls that come from other smart contracts, and allows up to five lines per wallet.</p></details>
+    <details><summary>Who can mint?</summary><p>Mint is currently paused on the old contract while the new Railix contract is prepared. After the switch, any personal wallet on BNB Chain — a person in a dApp browser, or an AI agent acting through its own wallet — can mint. The contract rejects calls that come from other smart contracts, and allows up to five lines per wallet.</p></details>
     <details><summary>What decides my line?</summary><p>A seed from the block and your address at mint. It picks the shape, the light and the runner's path. The same seed always lays the same line.</p></details>
     <details><summary>Where does it live?</summary><p>The seed is stored on BNB Chain. The drawing code is open and runs on this site, so anyone can redraw any Railix from its number.</p></details>
     <details><summary>What comes with it?</summary><p>A rail line, drawn. No token, no roadmap, no promises.</p></details>
