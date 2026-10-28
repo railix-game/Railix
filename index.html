@@ -253,6 +253,14 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
       <li><span class="mono">03</span><div><b>Your line is laid.</b> The block sets the seed; the seed lays the shape, the light and the runner. Nothing is curated after departure.</div></li>
     </ol>
 
+    <div class="check">
+      <label class="mono">MINT FROM THIS PAGE — ANY WALLET'S DAPP BROWSER</label>
+      <p class="mono small">Contract: 0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852 (live on BNB Chain · <a href="https://bscscan.com/address/0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852" target="_blank" rel="noopener">BscScan ↗</a>)</p>
+      <p class="mono small">Open this page inside your wallet's dApp browser (Binance Wallet, MetaMask, OKX or Trust) and tap Connect. Minting sends one <b>mint()</b> call, no arguments, with exactly the fare read from <code>currentPrice()</code>. Your wallet shows the value before you sign.</p>
+      <div class="check-row"><button class="btn ink sm" id="pmConnect">Connect wallet</button><button class="btn ink sm" id="pmMint" disabled>Mint a line</button></div>
+      <p class="mono small" id="pmWallet" aria-live="polite"></p>
+      <p class="mono small" id="pmOut" aria-live="polite">Mint is currently paused — new contract coming. The mint button above is built and will work when mint reopens.</p>
+    </div>
     <div class="code">
       <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
       <pre id="prompt">Mint is PAUSED on the old Railix contract.
@@ -913,6 +921,65 @@ Do not mint on this contract. Focus is on the new Railix contract (Railix v2): F
   }
   $('whoBtn').addEventListener('click', check);
   $('who').addEventListener('keydown', (e) => { if (e.key === 'Enter') check(); });
+
+  // ---------- mint from this page (voxelworld-style) ----------
+  const MINT_PAUSED = true; // flip to false when mint reopens on the new contract
+  let pmAccount = null;
+  function pmProvider() { return (window.okxwallet || window.ethereum) || null; }
+  function pmShort(a) { return a.slice(0, 6) + '…' + a.slice(-4); }
+  function pmToBnb(wei) { return (Number(wei) / 1e18).toFixed(6).replace(/0+$/, '').replace(/\.$/, ''); }
+  async function pmFare() { try { return await rpcCall('0x9d1b464a'); } catch (e) { return null; } }
+  async function pmRefreshWallet() {
+    if (!pmAccount) return;
+    try {
+      const bal = Number(await rpcCall('0x70a08231' + pmAccount.slice(2).toLowerCase().padStart(64, '0')));
+      const fare = await pmFare();
+      $('pmWallet').textContent = 'Connected: ' + pmShort(pmAccount) + ' · ' + bal + ' line' + (bal === 1 ? '' : 's') + ' on this wallet · ' + Math.max(0, 5 - bal) + ' more can board.' + (fare !== null ? ' Current fare: ' + pmToBnb(fare) + ' BNB (read from currentPrice()).' : '');
+    } catch (e) { $('pmWallet').textContent = 'Connected: ' + pmShort(pmAccount) + '. Could not read fare just now.'; }
+  }
+  $('pmConnect').addEventListener('click', async () => {
+    const p = pmProvider();
+    if (!p) { $('pmOut').textContent = "No wallet found. Open this page in your wallet's dApp browser (Binance Wallet, MetaMask, OKX or Trust)."; return; }
+    try {
+      const accs = await p.request({ method: 'eth_requestAccounts' });
+      pmAccount = accs[0];
+      try { await p.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x38' }] }); }
+      catch (e) { if (e.code === 4902) { await p.request({ method: 'wallet_addEthereumChain', params: [{ chainId: '0x38', chainName: 'BNB Smart Chain', nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }, rpcUrls: ['https://bsc-dataseed.binance.org'], blockExplorerUrls: ['https://bscscan.com'] }] }); } else throw e; }
+      $('pmOut').textContent = MINT_PAUSED ? 'Connected. Mint is currently paused — this button will work when mint reopens on the new contract.' : 'Connected on BNB Chain. Ready to mint.';
+      $('pmMint').disabled = MINT_PAUSED;
+      await pmRefreshWallet();
+    } catch (e) { $('pmOut').textContent = e && e.code === 4001 ? 'Connection rejected in your wallet.' : 'Could not connect: ' + (e && e.message ? e.message : e); }
+  });
+  $('pmMint').addEventListener('click', async () => {
+    const out = $('pmOut');
+    if (MINT_PAUSED) { out.textContent = 'Mint is paused. Please wait for the new Railix contract address.'; return; }
+    const p = pmProvider();
+    if (!p || !pmAccount) { out.textContent = 'Connect your wallet first.'; return; }
+    out.textContent = 'Reading current fare…';
+    try {
+      const fareHex = await p.request({ method: 'eth_call', params: [{ to: RX, data: '0x9d1b464a' }, 'latest'] });
+      const wei = BigInt(fareHex);
+      out.textContent = 'Sending mint() with exactly ' + pmToBnb(wei) + ' BNB — check your wallet before you sign.';
+      const hash = await p.request({ method: 'eth_sendTransaction', params: [{ from: pmAccount, to: RX, data: '0x1249c58b', value: '0x' + wei.toString(16) }] });
+      out.innerHTML = 'Mint sent. Transaction: <a href="https://bscscan.com/tx/' + hash + '" target="_blank" rel="noopener">' + hash.slice(0, 10) + '…' + hash.slice(-6) + ' ↗</a> — waiting for confirmation…';
+      for (let i = 0; i < 20; i++) {
+        await new Promise(r => setTimeout(r, 3000));
+        try {
+          const rc = await p.request({ method: 'eth_getTransactionReceipt', params: [hash] });
+          if (rc) {
+            if (rc.status === '0x1') { out.innerHTML = 'Confirmed. Your line is laid. Transaction: <a href="https://bscscan.com/tx/' + hash + '" target="_blank" rel="noopener">View on BscScan ↗</a>'; }
+            else { out.textContent = 'Transaction failed on-chain. No line was laid — check BscScan for the reason.'; }
+            readLine(); await pmRefreshWallet(); break;
+          }
+        } catch (e) {}
+        if (i === 19) { out.innerHTML = 'Still pending after a minute. Check it here: <a href="https://bscscan.com/tx/' + hash + '" target="_blank" rel="noopener">View on BscScan ↗</a>'; }
+      }
+    } catch (e) {
+      if (e && e.code === 4001) out.textContent = 'You rejected the transaction in your wallet. Nothing was sent.';
+      else if (e && /insufficient/i.test(e.message || '')) out.textContent = 'Not enough BNB for the fare + network gas.';
+      else out.textContent = 'The contract rejected this mint — check the wallet limit (max 5), the fare, and whether mint is open. ' + (e && e.message ? e.message : '');
+    }
+  });
 
   // ---------- copy ----------
   function legacyCopy(text) {
