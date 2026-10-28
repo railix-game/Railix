@@ -237,8 +237,8 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
 
   <section class="sec mint" id="mint">
     <div class="art-no mono">Line 03 · Boarding</div>
-    <h2 class="display">Mint is paused.</h2>
-    <p class="body">Minting on this contract is paused while we focus on the new Railix contract. Please do not mint here until the new contract address is announced. The new contract is Railix v2: FREE mint, creator fee 0.00015 BNB for the first 200 mints, then 0.00025 BNB, max 5 lines per wallet, any personal wallet, calls from smart contracts turned away on-chain.</p>
+    <h2 class="display">How to mint.</h2>
+    <p class="body">Any personal wallet on BNB Chain can mint — straight from this page, or through an AI agent's wallet. Calls from smart contracts are turned away on-chain. Up to five lines per wallet. Minting itself is free — the work has no price. What you send with your mint() call is a small creator fee to the owner wallet, and it is tiered: for the first 200 mints the fee is exactly 0.00015 BNB (150000000000000 wei); from mint 201 to 4,444 the fee rises to exactly 0.00025 BNB (250000000000000 wei) per mint. Send the amount for the tier your mint falls in — the contract checks it. Network gas on BNB Chain is charged separately by the network, as always. On-page mint is paused until the new contract address below is announced.</p>
 
     <div class="ledger">
       <div class="l-row"><span class="mono k">Lines laid</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
@@ -263,15 +263,25 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
     </div>
     <div class="code">
       <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
-      <pre id="prompt">Mint is PAUSED on the old Railix contract.
-Contract: 0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852
-
-Do not mint on this contract. Focus is on the new Railix contract (Railix v2): FREE mint, creator fee 0.00015 BNB for the first 200 mints, then 0.00025 BNB, max 5 per wallet. Its address will be announced here after deployment.</pre>
+      <pre id="prompt">Mint one Railix on BNB Chain (chain id 56).
+Contract: [new Railix contract address — to be announced after deployment]
+Call mint() with calldata 0x1249c58b.
+Value — the work itself is free; this value is the creator fee sent to the owner wallet, on top of network gas, and it depends on how many have already been minted:
+- If fewer than 200 have been minted: send exactly 0.00015 BNB (150000000000000 wei).
+- If 200 or more have been minted: send exactly 0.00025 BNB (250000000000000 wei).
+Check the minted count first and send the amount for that tier; the contract rejects any other value.
+Owner wallet (creator fee recipient): 0x8a20be5d6cbda88408ba272bb43d4902b08518f0</pre>
     </div>
     <div class="code dark">
       <div class="code-top mono"><span>baw CLI</span><button class="chip" data-copy="cli">Copy</button></div>
-      <pre id="cli"># Mint is PAUSED on the old Railix contract.
-# Do not run this until the new Railix contract address is announced.</pre>
+      <pre id="cli"># Creator fee tier: use --value 150000000000000 (0.00015 BNB) while fewer than 200 are minted;
+# once 200 or more are minted, use --value 250000000000000 (0.00025 BNB) instead.
+baw contract-call preview --binanceChainId 56 \
+  --from &lt;your wallet&gt; \
+  --to [new Railix contract address] \
+  --value 150000000000000 --inputData 0x1249c58b --json
+
+baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
     </div>
     <div class="check">
       <label class="mono" for="who">Check a ticket</label>
