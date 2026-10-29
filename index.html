@@ -199,7 +199,7 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
       <p class="kicker mono">rail·ix &nbsp;/ rail + ix / &nbsp;n. a line of light laid by a seed; the track a runner never leaves</p>
       <h1 class="display">Small runs.<br><em>Endless rails.</em></h1>
       <p class="lede">4,444 rail lines on BNB Chain. Every Railix is one track, one light, and one runner, laid down from a seed fixed the moment you mint it — from any personal wallet, or through an AI agent's wallet.</p>
-      <div class="cta"><a class="btn ink" href="#mint">Mint paused</a><a class="btn line" href="#run">Ride the track</a></div>
+      <div class="cta"><a class="btn ink" href="#mint">Mint a line</a><a class="btn line" href="#run">Ride the track</a></div>
     </div>
     <div class="hero-foot mono"><span>Series I</span><span>BNB Chain</span><span>Any personal wallet</span></div>
   </section>
@@ -238,7 +238,7 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
   <section class="sec mint" id="mint">
     <div class="art-no mono">Line 03 · Boarding</div>
     <h2 class="display">How to mint.</h2>
-    <p class="body">Any personal wallet on BNB Chain can mint — straight from this page, or through an AI agent's wallet. Calls from smart contracts are turned away on-chain. Up to five lines per wallet. Minting itself is free — the work has no price. What you send with your mint() call is a small creator fee to the owner wallet, and it is tiered: for the first 200 mints the fee is exactly 0.00015 BNB (150000000000000 wei); from mint 201 to 4,444 the fee rises to exactly 0.00025 BNB (250000000000000 wei) per mint. Send the amount for the tier your mint falls in — the contract checks it. Network gas on BNB Chain is charged separately by the network, as always. On-page mint is paused until the new contract address below is announced.</p>
+    <p class="body">Any personal wallet on BNB Chain can mint — straight from this page, or through an AI agent's wallet. Calls from smart contracts are turned away on-chain. Up to five lines per wallet. Minting itself is free — the work has no price. What you send with your mint() call is a small creator fee to the owner wallet, and it is tiered: for the first 200 mints the fee is exactly 0.00015 BNB (150000000000000 wei); from mint 201 to 4,444 the fee rises to exactly 0.00025 BNB (250000000000000 wei) per mint. Send the amount for the tier your mint falls in — the contract checks it. Network gas on BNB Chain is charged separately by the network, as always. Mint is live on the new contract.</p>
 
     <div class="ledger">
       <div class="l-row"><span class="mono k">Lines laid</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
@@ -255,16 +255,16 @@ details p{padding:0 0 22px;max-width:620px;color:#C9D3EE}
 
     <div class="check">
       <label class="mono">MINT FROM THIS PAGE — ANY WALLET'S DAPP BROWSER</label>
-      <p class="mono small">Contract: 0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852 (live on BNB Chain · <a href="https://bscscan.com/address/0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852" target="_blank" rel="noopener">BscScan ↗</a>)</p>
+      <p class="mono small">Contract: 0x98497a4174ecd244105410ed4a15967b84ce9283 (live on BNB Chain · <a href="https://bscscan.com/address/0x98497a4174ecd244105410ed4a15967b84ce9283" target="_blank" rel="noopener">BscScan ↗</a>)</p>
       <p class="mono small">Open this page inside your wallet's dApp browser (Binance Wallet, MetaMask, OKX or Trust) and tap Connect. Minting sends one <b>mint()</b> call, no arguments, with exactly the fare read from <code>currentPrice()</code>. Your wallet shows the value before you sign.</p>
       <div class="check-row"><button class="btn ink sm" id="pmConnect">Connect wallet</button><button class="btn ink sm" id="pmMint" disabled>Mint a line</button></div>
       <p class="mono small" id="pmWallet" aria-live="polite"></p>
-      <p class="mono small" id="pmOut" aria-live="polite">Mint is currently paused — new contract coming. The mint button above is built and will work when mint reopens.</p>
+      <p class="mono small" id="pmOut" aria-live="polite">Connect your wallet to mint.</p>
     </div>
     <div class="code">
       <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
       <pre id="prompt">Mint one Railix on BNB Chain (chain id 56).
-Contract: [new Railix contract address — to be announced after deployment]
+Contract: <span class="caddr">0x98497a4174ecd244105410ed4a15967b84ce9283</span>
 Call mint() with calldata 0x1249c58b.
 Value — the work itself is free; this value is the creator fee sent to the owner wallet, on top of network gas, and it depends on how many have already been minted:
 - If fewer than 200 have been minted: send exactly 0.00015 BNB (150000000000000 wei).
@@ -278,7 +278,7 @@ Owner wallet (creator fee recipient): 0x8a20be5d6cbda88408ba272bb43d4902b08518f0
 # once 200 or more are minted, use --value 250000000000000 (0.00025 BNB) instead.
 baw contract-call preview --binanceChainId 56 \
   --from &lt;your wallet&gt; \
-  --to [new Railix contract address] \
+  --to <span class="caddr">0x98497a4174ecd244105410ed4a15967b84ce9283</span> \
   --value 150000000000000 --inputData 0x1249c58b --json
 
 baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
@@ -334,7 +334,7 @@ baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
 
 <footer class="foot mono">
   <span>RAILIX · SERIES I · 4,444 LINES</span>
-  <a id="cLink" href="https://bscscan.com/address/0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852" target="_blank" rel="noopener">Contract 0xf748…2852 ↗</a>
+  <a id="cLink" href="https://bscscan.com/address/0x98497a4174ecd244105410ed4a15967b84ce9283" target="_blank" rel="noopener">Contract 0x9849…9283 ↗</a>
 </footer>
 
 <script>
@@ -897,7 +897,7 @@ baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
   let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { sizeField(); frame(performance.now()); sizeRun(); drawRun(); drawForms(); drawCards(); gen(gSeed.value); }, 200); });
 
   // ---------- chain ----------
-  const RX = '0xf7485126668f2ea6bd55c1380a3cd5cbb78e2852', RPCS = ['https://bsc-mainnet.public.blastapi.io','https://bsc-dataseed.binance.org','https://bsc-rpc.publicnode.com'];
+  const RX = '0x98497a4174ecd244105410ed4a15967b84ce9283', RPCS = ['https://bsc-mainnet.public.blastapi.io','https://bsc-dataseed.binance.org','https://bsc-rpc.publicnode.com'];
   async function rpcCall(data) {
     for (const u of RPCS) {
       try {
@@ -909,7 +909,7 @@ baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
   }
   async function readLine() {
     try {
-      const [sup, open] = await Promise.all([rpcCall('0x18160ddd'), rpcCall('0x24bbd049')]);
+      const [sup, open] = await Promise.all([rpcCall('0xa2309ff8'), rpcCall('0x24bbd049')]);
       const n = Number(sup), left = 4444 - n;
       $('mMinted').textContent = n.toLocaleString('en-US');
       $('mLeft').textContent = left.toLocaleString('en-US');
@@ -933,7 +933,7 @@ baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
   $('who').addEventListener('keydown', (e) => { if (e.key === 'Enter') check(); });
 
   // ---------- mint from this page (voxelworld-style) ----------
-  const MINT_PAUSED = true; // flip to false when mint reopens on the new contract
+  const MINT_PAUSED = false; // live on Railix v2
   let pmAccount = null;
   function pmProvider() { return (window.okxwallet || window.ethereum) || null; }
   function pmShort(a) { return a.slice(0, 6) + '…' + a.slice(-4); }
