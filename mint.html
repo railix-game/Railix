@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAILIX — Mint</title>
+<meta name="description" content="4,444 rail lines on BNB Chain. Mint is currently closed — a new contract is being prepared and will open only after the owner approves.">
+<meta property="og:title" content="RAILIX — Mint">
+<meta property="og:description" content="4,444 rail lines on BNB Chain. Mint is currently closed.">
+<meta property="og:image" content="https://railix.xyz/og.jpg">
+<style>
+body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 20px 48px;line-height:1.6;background:#07080F;color:#E9F3FF}
+a{color:#22E6FF}h1{font-size:clamp(44px,10vw,84px);line-height:.95;letter-spacing:-.03em;margin:12px 0}
+h1 em{font-style:normal;color:#FF2BD6}
+.mono{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8C95B8}
+.box{background:#0D0F1C;border:1px solid rgba(120,140,255,.25);border-radius:12px;padding:20px;margin:24px 0}
+.closed{border-color:#f5c518;background:#2a1f00;color:#ffe9a8}
+button{padding:14px 24px;font-size:14px;font-family:ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border:1px solid #22E6FF;background:#22E6FF;color:#07080F;font-weight:700;cursor:pointer;border-radius:4px}
+button:disabled{opacity:.45;cursor:not-allowed;background:transparent;color:#8C95B8;border-color:rgba(120,140,255,.25)}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+td{padding:10px 0;border-bottom:1px solid rgba(120,140,255,.18);vertical-align:top}
+td:first-child{color:#8C95B8;width:42%}
+code{background:#12152A;color:#22E6FF;padding:.1em .35em;border-radius:3px;word-break:break-all}
+.small{color:#8C95B8;font-size:14px}
+</style>
+</head>
+<body>
+<p class="mono">RAILIX · Series I · BNB Chain</p>
+<h1>Small runs,<br><em>endless rails.</em></h1>
+<p style="max-width:620px;color:#C9D3EE">4,444 rail lines on BNB Chain. One track, one light, one runner, laid from a seed the moment a wallet mints it.</p>
+
+<div class="box closed">
+<b>MINT SAAT INI DITUTUP.</b><br>
+Kontrak baru sedang disiapkan. Mint hanya akan dibuka setelah owner menyetujui secara eksplisit. Jangan mint ke alamat kontrak lama — mint di kontrak sebelumnya sudah ditutup.
+</div>
+
+<div class="box">
+<p class="mono">Mint</p>
+<table>
+<tr><td>Supply</td><td>4,444 lines</td></tr>
+<tr><td>Per wallet</td><td>Maksimal 5 lines</td></tr>
+<tr><td>Harga token</td><td>FREE (0 BNB) — yang dibayar adalah creator fee ke wallet owner</td></tr>
+<tr><td>Creator fee</td><td>0.00015 BNB untuk 200 mint pertama, lalu 0.00025 BNB per mint</td></tr>
+<tr><td>Gas</td><td>Biaya jaringan BNB Chain, terpisah, tampil di wallet sebelum tanda tangan</td></tr>
+<tr><td>Wallet</td><td>Personal wallet di BNB Chain (OKX, MetaMask, Binance Wallet, Trust) — panggilan dari smart contract ditolak di chain</td></tr>
+<tr><td>Alamat kontrak</td><td>Akan diumumkan di halaman ini begitu kontrak baru di-deploy dan diverifikasi</td></tr>
+</table>
+<button disabled>Mint a line — belum dibuka</button>
+<p class="small">Tombol ini sengaja nonaktif. Begitu owner approve pembukaan mint, tombol ini akan diaktifkan dan alamat kontrak baru akan tampil di sini.</p>
+</div>
+
+<p class="small">Cara mint nanti: buka halaman ini di browser dApp wallet kamu, connect wallet di BNB Chain (56), tekan Mint, dan konfirmasi satu panggilan <code>mint()</code> tanpa argumen dengan fee yang tepat. Wallet menampilkan nilainya sebelum kamu tanda tangan.</p>
+<p><a href="https://railix.xyz/">← Kembali ke railix.xyz</a></p>
+</body>
+</html>
