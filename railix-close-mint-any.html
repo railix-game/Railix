@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Railix — Tutup Mint (Kontrak Baru)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px;line-height:1.6;background:#0f1115;color:#eee}
+a{color:#7fb4ff}button{padding:12px 18px;font-size:16px;cursor:pointer;margin:6px 6px 6px 0;border:0;border-radius:8px;background:#f5c518;color:#111;font-weight:700}button:disabled{opacity:.5;cursor:not-allowed}
+input{width:100%;padding:12px;font-size:15px;margin:8px 0;border-radius:8px;border:1px solid #444;background:#1c1f26;color:#eee;box-sizing:border-box}
+code{word-break:break-all;background:#222;padding:2px 6px;border-radius:4px}
+#out{white-space:pre-wrap;background:#1c1f26;padding:14px;border-radius:8px;margin-top:16px}
+.warn{background:#2a1f00;border:1px solid #f5c518;padding:12px;border-radius:8px}
+</style>
+</head>
+<body>
+<h1>Railix — Tutup Mint (Kontrak Baru)</h1>
+<p class="warn"><b>Kenapa halaman ini ada:</b> kode Railix v2 mengatur <code>mintOpen = true</code> sejak deploy. Jadi kontrak baru langsung terbuka di chain begitu di-deploy, walaupun tombol mint di situs masih nonaktif. Halaman ini dipakai untuk menutupnya dulu — mint baru dibuka lagi nanti setelah owner menyetujui secara eksplisit.</p>
+<p>Kontrak di blockchain tidak bisa dihapus. Halaman ini hanya memanggil <code>setMintOpen(false)</code> pada alamat kontrak yang kamu isi. Hanya wallet owner kontrak yang bisa berhasil; wallet lain transaksinya akan gagal. Nilai BNB dikirim: 0 — hanya gas. Jaringan: BNB Smart Chain (56).</p>
+<label for="addr">Alamat kontrak baru (0x…)</label>
+<input id="addr" placeholder="0x…" autocomplete="off" spellcheck="false">
+<p><button id="connect">1. Connect Wallet (OKX dulu)</button>
+<button id="check">2. Cek mintOpen</button>
+<button id="close" disabled>3. Tutup Mint (setMintOpen false)</button></p>
+<p>Urutan yang benar: deploy kontrak baru → langsung tutup mint lewat halaman ini → kirim tx hash ke Muse untuk diverifikasi → barulah link mint dipasang di situs dalam keadaan tertutup, dan mint hanya dibuka setelah owner approve.</p>
+<div id="out">Belum connect. Isi alamat kontrak baru dulu, lalu Connect.</div>
+<script>
+const SEL_MINTOPEN = "0x24bbd049";
+const SEL_SETMINTOPEN = "0xf8004d31";
+const DATA_CLOSE = SEL_SETMINTOPEN + "0000000000000000000000000000000000000000000000000000000000000000";
+const out = document.getElementById("out");
+function log(s){ out.textContent = s; }
+function provider(){ if (window.okxwallet) return window.okxwallet; if (window.ethereum) return window.ethereum; return null; }
+function addr(){ return document.getElementById("addr").value.trim(); }
+function valid(a){ return /^0x[0-9a-fA-F]{40}$/.test(a); }
+let account = null;
+async function ensureBnb(p){
+  try { await p.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }); }
+  catch (e) {
+    if (e.code === 4902) {
+      await p.request({ method: "wallet_addEthereumChain", params: [{ chainId: "0x38", chainName: "BNB Smart Chain", nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 }, rpcUrls: ["https://bsc-dataseed.binance.org"], blockExplorerUrls: ["https://bscscan.com"] }] });
+    } else throw e;
+  }
+}
+document.getElementById("connect").onclick = async () => {
+  const p = provider();
+  if (!p) { log("Wallet tidak ditemukan. Buka halaman ini di browser dApp OKX / MetaMask."); return; }
+  if (!valid(addr())) { log("Alamat kontrak belum benar. Isi alamat kontrak baru (0x + 40 karakter hex) dulu."); return; }
+  try {
+    const accs = await p.request({ method: "eth_requestAccounts" });
+    account = accs[0];
+    await ensureBnb(p);
+    document.getElementById("close").disabled = false;
+    log("Connected: " + account + " di BNB Chain (56).\nKontrak: " + addr() + "\nLanjut ke Cek mintOpen, lalu Tutup Mint.");
+  } catch (e) { log("Connect gagal: " + (e.message || e)); }
+};
+document.getElementById("check").onclick = async () => {
+  const p = provider();
+  if (!p) { log("Connect dulu."); return; }
+  if (!valid(addr())) { log("Alamat kontrak belum benar."); return; }
+  try {
+    const r = await p.request({ method: "eth_call", params: [{ to: addr(), data: SEL_MINTOPEN }, "latest"] });
+    log("mintOpen saat ini: " + (r.slice(-1) === "1" ? "true (masih buka)" : "false (sudah tutup)") + "\nKontrak: " + addr() + "\nRaw: " + r);
+  } catch (e) { log("Cek gagal: " + (e.message || e)); }
+};
+document.getElementById("close").onclick = async () => {
+  const p = provider();
+  if (!account) { log("Connect dulu."); return; }
+  if (!valid(addr())) { log("Alamat kontrak belum benar."); return; }
+  if (!confirm("Tutup mint di kontrak " + addr() + "? Setelah ini tidak ada lagi yang bisa mint di kontrak ini sampai owner membukanya lagi.")) return;
+  try {
+    const hash = await p.request({ method: "eth_sendTransaction", params: [{ from: account, to: addr(), data: DATA_CLOSE, value: "0x0" }] });
+    log("Transaksi terkirim: " + hash + "\nBscScan: https://bscscan.com/tx/" + hash + "\nTunggu konfirmasi, lalu tekan Cek mintOpen lagi — harus jadi false.\nKirim tx hash ini ke Muse untuk diverifikasi sebelum link mint dipasang.");
+  } catch (e) { log("Tutup mint gagal: " + (e.message || e)); }
+};
+</script>
+</body>
+</html>
