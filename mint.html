@@ -31,7 +31,7 @@ code{background:#12152A;color:#22E6FF;padding:.1em .35em;border-radius:3px;word-
 
 <div class="box closed">
 <b>MINT SAAT INI DITUTUP.</b><br>
-Kontrak baru sedang disiapkan. Mint hanya akan dibuka setelah owner menyetujui secara eksplisit. Jangan mint ke alamat kontrak lama — mint di kontrak sebelumnya sudah ditutup.
+Kontrak baru sudah ter-deploy dan mint-nya tertutup (<code>mintOpen: false</code>, terverifikasi). Mint hanya akan dibuka setelah owner menyetujui secara eksplisit. Jangan mint ke alamat kontrak lama — mint di kontrak sebelumnya sudah ditutup.
 </div>
 
 <div class="box">
@@ -43,14 +43,13 @@ Kontrak baru sedang disiapkan. Mint hanya akan dibuka setelah owner menyetujui s
 <tr><td>Creator fee</td><td>0.00015 BNB untuk 200 mint pertama, lalu 0.00025 BNB per mint</td></tr>
 <tr><td>Gas</td><td>Biaya jaringan BNB Chain, terpisah, tampil di wallet sebelum tanda tangan</td></tr>
 <tr><td>Wallet</td><td>Personal wallet di BNB Chain (OKX, MetaMask, Binance Wallet, Trust) — panggilan dari smart contract ditolak di chain</td></tr>
-<tr><td>Alamat kontrak</td><td>Akan diumumkan di halaman ini begitu kontrak baru di-deploy dan diverifikasi</td></tr>
+<tr><td>Alamat kontrak</td><td><code>0x4f1012edd878cbbd2686eb0d98e91302a0fe2474</code> (<a href="https://bscscan.com/address/0x4f1012edd878cbbd2686eb0d98e91302a0fe2474" target="_blank" rel="noopener">BscScan ↗</a>) — mint tertutup</td></tr>
 </table>
 <button disabled>Mint a line — belum dibuka</button>
-<p class="small">Tombol ini sengaja nonaktif. Begitu owner approve pembukaan mint, tombol ini akan diaktifkan dan alamat kontrak baru akan tampil di sini.</p>
+<p class="small">Tombol ini sengaja nonaktif. Begitu owner approve pembukaan mint, tombol ini akan diaktifkan.</p>
 </div>
 
 <p class="small">Cara mint nanti: buka halaman ini di browser dApp wallet kamu, connect wallet di BNB Chain (56), tekan Mint, dan konfirmasi satu panggilan <code>mint()</code> tanpa argumen dengan fee yang tepat. Wallet menampilkan nilainya sebelum kamu tanda tangan.</p>
 <p><a href="https://railix.xyz/">← Kembali ke railix.xyz</a></p>
-<!-- pages rebuild trigger -->
 </body>
 </html>
