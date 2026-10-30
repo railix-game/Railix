@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Railix — Buka Mint</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px;line-height:1.6;background:#0f1115;color:#eee}
+a{color:#7fb4ff}button{padding:12px 18px;font-size:16px;cursor:pointer;margin:6px 6px 6px 0;border:0;border-radius:8px;background:#22E6FF;color:#111;font-weight:700}button:disabled{opacity:.5;cursor:not-allowed}
+code{word-break:break-all;background:#222;padding:2px 6px;border-radius:4px}
+#out{white-space:pre-wrap;background:#1c1f26;padding:14px;border-radius:8px;margin-top:16px}
+.warn{background:#2a1f00;border:1px solid #f5c518;padding:12px;border-radius:8px}
+</style>
+</head>
+<body>
+<h1>Railix — Buka Mint</h1>
+<p class="warn"><b>Perhatian:</b> menekan Buka Mint akan langsung membuka mint di chain. Begitu <code>mintOpen</code> jadi true, siapa pun bisa mint — fee 0.00015 BNB untuk 200 mint pertama, lalu 0.00025 BNB. Pastikan kamu memang sudah approve pembukaan mint sebelum menekan tombol ini. Halaman ini sendiri tidak membuka apa-apa sampai kamu menekan tombol dan mengonfirmasi di wallet.</p>
+<p>Kontrak baru: <code>0x4f1012edd878cbbd2686eb0d98e91302a0fe2474</code><br>
+Jaringan: BNB Smart Chain (56) · Nilai BNB dikirim: 0 — hanya gas.<br>
+Hanya wallet owner kontrak yang bisa berhasil; wallet lain transaksinya akan gagal (revert).</p>
+<p><button id="connect">1. Connect Wallet (OKX dulu)</button>
+<button id="check">2. Cek mintOpen</button>
+<button id="open" disabled>3. Buka Mint (setMintOpen true)</button></p>
+<p>Setelah buka mint berhasil, kirim tx hash-nya ke Muse untuk diverifikasi — barulah tombol mint di situs (index dan mint.html) diaktifkan.</p>
+<div id="out">Belum connect.</div>
+<script>
+const CONTRACT = "0x4f1012edd878cbbd2686eb0d98e91302a0fe2474";
+const SEL_MINTOPEN = "0x24bbd049";
+const SEL_SETMINTOPEN = "0xf8004d31";
+const DATA_OPEN = SEL_SETMINTOPEN + "0000000000000000000000000000000000000000000000000000000000000001";
+const out = document.getElementById("out");
+function log(s){ out.textContent = s; }
+function provider(){ if (window.okxwallet) return window.okxwallet; if (window.ethereum) return window.ethereum; return null; }
+let account = null;
+async function ensureBnb(p){
+  try { await p.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }); }
+  catch (e) {
+    if (e.code === 4902) {
+      await p.request({ method: "wallet_addEthereumChain", params: [{ chainId: "0x38", chainName: "BNB Smart Chain", nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 }, rpcUrls: ["https://bsc-dataseed.binance.org"], blockExplorerUrls: ["https://bscscan.com"] }] });
+    } else throw e;
+  }
+}
+document.getElementById("connect").onclick = async () => {
+  const p = provider();
+  if (!p) { log("Wallet tidak ditemukan. Buka halaman ini di browser dApp OKX / MetaMask."); return; }
+  try {
+    const accs = await p.request({ method: "eth_requestAccounts" });
+    account = accs[0];
+    await ensureBnb(p);
+    document.getElementById("open").disabled = false;
+    log("Connected: " + account + " di BNB Chain (56).\nKontrak: " + CONTRACT + "\nLanjut ke Cek mintOpen, lalu Buka Mint hanya kalau kamu sudah approve.");
+  } catch (e) { log("Connect gagal: " + (e.message || e)); }
+};
+document.getElementById("check").onclick = async () => {
+  const p = provider();
+  if (!p) { log("Connect dulu."); return; }
+  try {
+    const r = await p.request({ method: "eth_call", params: [{ to: CONTRACT, data: SEL_MINTOPEN }, "latest"] });
+    log("mintOpen saat ini: " + (r.slice(-1) === "1" ? "true (sudah buka)" : "false (masih tutup)") + "\nRaw: " + r);
+  } catch (e) { log("Cek gagal: " + (e.message || e)); }
+};
+document.getElementById("open").onclick = async () => {
+  const p = provider();
+  if (!account) { log("Connect dulu."); return; }
+  if (!confirm("Buka mint di kontrak 0x4f1012edd878cbbd2686eb0d98e91302a0fe2474? Setelah ini siapa pun bisa mint.")) return;
+  try {
+    const hash = await p.request({ method: "eth_sendTransaction", params: [{ from: account, to: CONTRACT, data: DATA_OPEN, value: "0x0" }] });
+    log("Transaksi terkirim: " + hash + "\nBscScan: https://bscscan.com/tx/" + hash + "\nTunggu konfirmasi, lalu tekan Cek mintOpen lagi — harus jadi true.\nKirim tx hash ini ke Muse untuk diverifikasi dan mengaktifkan tombol mint di situs.");
+  } catch (e) { log("Buka mint gagal: " + (e.message || e)); }
+};
+</script>
+</body>
+</html>
