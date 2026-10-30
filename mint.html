@@ -15,6 +15,7 @@ h1 em{font-style:normal;color:#FF2BD6}
 .mono{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8C95B8}
 .box{background:#0D0F1C;border:1px solid rgba(120,140,255,.25);border-radius:12px;padding:20px;margin:24px 0}
 .closed{border-color:#f5c518;background:#2a1f00;color:#ffe9a8}
+.open{border-color:#22E6FF;background:#0D2B2E;color:#C8F6FF}
 button{padding:14px 24px;font-size:14px;font-family:ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border:1px solid #22E6FF;background:#22E6FF;color:#07080F;font-weight:700;cursor:pointer;border-radius:4px}
 button:disabled{opacity:.45;cursor:not-allowed;background:transparent;color:#8C95B8;border-color:rgba(120,140,255,.25)}
 table{width:100%;border-collapse:collapse;margin:16px 0}
@@ -29,9 +30,9 @@ code{background:#12152A;color:#22E6FF;padding:.1em .35em;border-radius:3px;word-
 <h1>Small runs,<br><em>endless rails.</em></h1>
 <p style="max-width:620px;color:#C9D3EE">4,444 rail lines on BNB Chain. One track, one light, one runner, laid from a seed the moment a wallet mints it.</p>
 
-<div class="box closed">
-<b>MINT SAAT INI DITUTUP.</b><br>
-Kontrak baru sudah ter-deploy dan mint-nya tertutup (<code>mintOpen: false</code>, terverifikasi). Mint hanya akan dibuka setelah owner menyetujui secara eksplisit. Jangan mint ke alamat kontrak lama — mint di kontrak sebelumnya sudah ditutup.
+<div class="box open">
+<b>MINT DIBUKA.</b><br>
+Kontrak baru sudah live dan mint-nya dibuka oleh owner. Jangan mint ke alamat kontrak lama — mint di kontrak sebelumnya sudah ditutup.
 </div>
 
 <div class="box">
@@ -43,13 +44,80 @@ Kontrak baru sudah ter-deploy dan mint-nya tertutup (<code>mintOpen: false</code
 <tr><td>Creator fee</td><td>0.00015 BNB untuk 200 mint pertama, lalu 0.00025 BNB per mint</td></tr>
 <tr><td>Gas</td><td>Biaya jaringan BNB Chain, terpisah, tampil di wallet sebelum tanda tangan</td></tr>
 <tr><td>Wallet</td><td>Personal wallet di BNB Chain (OKX, MetaMask, Binance Wallet, Trust) — panggilan dari smart contract ditolak di chain</td></tr>
-<tr><td>Alamat kontrak</td><td><code>0x4f1012edd878cbbd2686eb0d98e91302a0fe2474</code> (<a href="https://bscscan.com/address/0x4f1012edd878cbbd2686eb0d98e91302a0fe2474" target="_blank" rel="noopener">BscScan ↗</a>) — mint tertutup</td></tr>
+<tr><td>Alamat kontrak</td><td><code>0x4f1012edd878cbbd2686eb0d98e91302a0fe2474</code> (<a href="https://bscscan.com/address/0x4f1012edd878cbbd2686eb0d98e91302a0fe2474" target="_blank" rel="noopener">BscScan ↗</a>) — mint live</td></tr>
 </table>
-<button disabled>Mint a line — belum dibuka</button>
-<p class="small">Tombol ini sengaja nonaktif. Begitu owner approve pembukaan mint, tombol ini akan diaktifkan.</p>
+<div><button id="pmConnect">Connect wallet</button> <button id="pmMint" disabled>Mint a line</button></div>
+<p class="small" id="pmWallet"></p>
+<p class="small" id="pmOut">Connect your wallet to mint.</p>
 </div>
 
 <p class="small">Cara mint nanti: buka halaman ini di browser dApp wallet kamu, connect wallet di BNB Chain (56), tekan Mint, dan konfirmasi satu panggilan <code>mint()</code> tanpa argumen dengan fee yang tepat. Wallet menampilkan nilainya sebelum kamu tanda tangan.</p>
 <p><a href="https://railix.xyz/">← Kembali ke railix.xyz</a></p>
+
+<script>
+(function () {
+  const RX = "0x4f1012edd878cbbd2686eb0d98e91302a0fe2474";
+  const $ = (id) => document.getElementById(id);
+  let account = null;
+  function provider() { return (window.okxwallet || window.ethereum) || null; }
+  function short(a) { return a.slice(0, 6) + "…" + a.slice(-4); }
+  function toBnb(wei) { return (Number(wei) / 1e18).toFixed(6).replace(/0+$/, "").replace(/\.$/, ""); }
+  async function callFn(to, data) {
+    const p = provider();
+    return await p.request({ method: "eth_call", params: [{ to, data }, "latest"] });
+  }
+  async function fare() { try { return BigInt(await callFn(RX, "0x9d1b464a")); } catch (e) { return null; } }
+  async function refresh() {
+    if (!account) return;
+    try {
+      const bal = Number(BigInt(await callFn(RX, "0x70a08231" + account.slice(2).toLowerCase().padStart(64, "0"))));
+      const f = await fare();
+      $("pmWallet").textContent = "Connected: " + short(account) + " · " + bal + " line" + (bal === 1 ? "" : "s") + " on this wallet · " + Math.max(0, 5 - bal) + " more can board." + (f !== null ? " Current fare: " + toBnb(f) + " BNB (read from currentPrice())." : "");
+    } catch (e) { $("pmWallet").textContent = "Connected: " + short(account) + ". Could not read fare just now."; }
+  }
+  $("pmConnect").onclick = async () => {
+    const p = provider();
+    if (!p) { $("pmOut").textContent = "No wallet found. Open this page in your wallet's dApp browser (Binance Wallet, MetaMask, OKX or Trust)."; return; }
+    try {
+      const accs = await p.request({ method: "eth_requestAccounts" });
+      account = accs[0];
+      try { await p.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }); }
+      catch (e) { if (e.code === 4902) { await p.request({ method: "wallet_addEthereumChain", params: [{ chainId: "0x38", chainName: "BNB Smart Chain", nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 }, rpcUrls: ["https://bsc-dataseed.binance.org"], blockExplorerUrls: ["https://bscscan.com"] }] }); } else throw e; }
+      $("pmOut").textContent = "Connected on BNB Chain. Ready to mint.";
+      $("pmMint").disabled = false;
+      await refresh();
+    } catch (e) { $("pmOut").textContent = e && e.code === 4001 ? "Connection rejected in your wallet." : "Could not connect: " + (e && e.message ? e.message : e); }
+  };
+  $("pmMint").onclick = async () => {
+    const out = $("pmOut");
+    const p = provider();
+    if (!p || !account) { out.textContent = "Connect your wallet first."; return; }
+    out.textContent = "Reading current fare…";
+    try {
+      const fareHex = await p.request({ method: "eth_call", params: [{ to: RX, data: "0x9d1b464a" }, "latest"] });
+      const wei = BigInt(fareHex);
+      out.textContent = "Sending mint() with exactly " + toBnb(wei) + " BNB — check your wallet before you sign.";
+      const hash = await p.request({ method: "eth_sendTransaction", params: [{ from: account, to: RX, data: "0x1249c58b", value: "0x" + wei.toString(16) }] });
+      out.innerHTML = "Mint sent. Transaction: <a href=\"https://bscscan.com/tx/" + hash + "\" target=\"_blank\" rel=\"noopener\">" + hash.slice(0, 10) + "…" + hash.slice(-6) + " ↗</a> — waiting for confirmation…";
+      for (let i = 0; i < 20; i++) {
+        await new Promise(r => setTimeout(r, 3000));
+        try {
+          const rc = await p.request({ method: "eth_getTransactionReceipt", params: [hash] });
+          if (rc) {
+            if (rc.status === "0x1") { out.innerHTML = "Confirmed. Your line is laid. Transaction: <a href=\"https://bscscan.com/tx/" + hash + "\" target=\"_blank\" rel=\"noopener\">View on BscScan ↗</a>"; }
+            else { out.textContent = "Transaction failed on-chain. No line was laid — check BscScan for the reason."; }
+            await refresh(); break;
+          }
+        } catch (e) {}
+        if (i === 19) { out.innerHTML = "Still pending after a minute. Check it here: <a href=\"https://bscscan.com/tx/" + hash + "\" target=\"_blank\" rel=\"noopener\">View on BscScan ↗</a>"; }
+      }
+    } catch (e) {
+      if (e && e.code === 4001) out.textContent = "You rejected the transaction in your wallet. Nothing was sent.";
+      else if (e && /insufficient/i.test(e.message || "")) out.textContent = "Not enough BNB for the fare + network gas.";
+      else out.textContent = "The contract rejected this mint — check the wallet limit (max 5), the fare, and whether mint is open. " + (e && e.message ? e.message : "");
+    }
+  };
+})();
+</script>
 </body>
 </html>
